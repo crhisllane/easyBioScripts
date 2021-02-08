@@ -36,7 +36,7 @@ for clusterline in allClusterLines:
             clusterok.append(idclust)
 
         count = 0
-        idclust = element[0] + " " + str(element[1])
+        idclust = element[0] + "_" + str(element[1])
         #print ("idclus", element[0], element[1])
     else:
         #print ("  idseq", element[0], element[2])
@@ -53,10 +53,14 @@ teste = 0
 
 cdhit_sequences = SeqIO.parse(open("FILECLUSTER.temp"),'fasta')
 for cdhitseq in cdhit_sequences:
+    
     name_clu, seqs_clus = cdhitseq.id, str(cdhitseq.seq)
-    print ("name_clu", name_clu, "\n")
-    seqs_clus = re.sub("[0-9]*aa,", "\n" ,seqs_clus)
-    print ("\tseqs_clu", seqs_clus, "\n")
+    if cdhitseq in clusterok:
+        print ("name_clu", name_clu, "\n")
+        seqs_clus = re.sub("[0-9]*aa,", "\n" ,seqs_clus)
+        #print ("\tseqs_clu", seqs_clus, "\n")
+    else:
+        print ("OUT cluster: less than size", name_clu, "\n")    
 
 
 """
