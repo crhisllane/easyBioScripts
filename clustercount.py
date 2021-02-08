@@ -70,7 +70,7 @@ for cdhitseq in cdhit_sequences:
                 cab_id = re.search(r"_.*", fastaname1)
                 realseqid = re.sub("^_", "" ,cab_id[0])
                 fastaFileName = re.search(r".*\.fna", fastaname1)
-                print (fastaname, " ", cab_id, " ",  fastaFileName, "\n")
+                print (fastaname, " ", realseqid, " ",  fastaFileName, "\n")
     else:
         print ("OUT cluster: less than size", name_clu, "\n")    
 
