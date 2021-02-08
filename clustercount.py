@@ -78,11 +78,11 @@ for clusterline in allClusterLines:
             if re.match(r"^>PD", fastaname):
                 fastaFileName = fastaFileName[0] + ".genes.fna"
                 checkname = re.search(r".ffa_*", fastaname)
-                checkname = re.sub(".ffa_", "" , checkname[0])
+                checkname = re.sub("\.ffa_", "" , checkname[0])
             elif re.match(r"^>SM", fastaname):
                 fastaFileName = fastaFileName[0] + ".ffn"
                 checkname = re.search(r".fna_*", fastaname)
-                checkname = re.sub(".fna_", "" , checkname[0]) 
+                checkname = re.sub("\.fna_", "" , checkname[0]) 
             else:
                 log.write(fastaname + ' no ^>PD or ^>SM')
 
