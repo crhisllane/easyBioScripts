@@ -65,7 +65,7 @@ for cdhitseq in cdhit_sequences:
             if ini in id_seq:           
                 print ("\t---", id_seq, "\n")
                 fastaname = re.sub("\.\.\..*", "" ,id_seq)
-                fastaname1 = re.sub("^ >[A-Z][A-Z]_", "" ,fastaname)
+                fastaname1 = re.sub("^>[A-Z][A-Z]_", "" ,fastaname)
                 fastaname1 = re.sub(".proteins.ffa", "" ,fastaname1)
                 cab_id = re.search(r"_.*", fastaname1)
                 cab_id = re.sub("^_", "" ,cab_id[0])
