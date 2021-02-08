@@ -51,7 +51,7 @@ log = open ('ERROR.log', 'w+')
 
 teste = 0
 
-cdhit_sequences = SeqIO.parse(open(FILECLUSTER.temp),'fasta')
+cdhit_sequences = SeqIO.parse(open("FILECLUSTER.temp"),'fasta')
 for cdhitseq in cdhit_sequences:
     name_clu = cdhitseq.id
     print ("name_clu", name_clu, "\n")
