@@ -59,8 +59,8 @@ for cdhitseq in cdhit_sequences:
     print ("analise", name_clu, "\n")
     if name_clu in clusterok:
         print ("name_clu", name_clu, "\n")
-        #seqs_clus = re.sub("[0-9]*aa,", "\n" ,seqs_clus)
-        each_id_seq = seqs_clus.split("[0-9]*aa")
+        seqs_clus = re.sub("[0-9]*aa,", "----" ,seqs_clus)
+        each_id_seq = seqs_clus.split("----")
         for id_seq in each_id_seq:            
             print ("\t---", id_seq, "\n")
     else:
