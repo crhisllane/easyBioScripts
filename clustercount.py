@@ -89,9 +89,11 @@ for clusterline in allClusterLines:
             fasta_sequences = SeqIO.parse(open(fastaFileName),'fasta')
             for fasta in fasta_sequences:
                 name, sequence = fasta.id, str(fasta.seq)
-                if cabid in name:
-                    new_sequence = name + '\n' + sequence + '\n'
+                if re.search(r'.ffn', fastaFileName): 
+                    name = re.sub(">[a-zA-Z0-9]*_[a-zA-Z0-9]* ", ">" ,fastaname1)
+                if cabid == name:
+                    new_sequence = fastaname + '\n' + sequence + '\n'
                     outfasta.write(new_sequence)
-                    print ("\t inserting ",  cabid, " ", name, "\n") 
+                    print ("\t\t inserting ",  cabid, " ", name, " ", fastaname, "\n") 
 
 
