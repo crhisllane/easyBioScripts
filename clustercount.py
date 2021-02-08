@@ -22,6 +22,9 @@ idclust = 0
 limit = argumentos.size
 clusterok = []
 
+cmd = "sed 's/>Cluster />Cluster_/' %s > FILECLUSTER.temp"%(argumentos.file)
+os.system(cmd)
+
 #taking the clusters with number of members according to the size informed.
 for clusterline in allClusterLines:
     elements = clusterline.rstrip('\n')
