@@ -43,11 +43,18 @@ if (lastcount >= limit):
     #print (idclust, "=", lastcount)
     clusterok.append(idclust)
 
-print(clusterok)
+print("clusters ok")
 log = open ('ERROR.log', 'w+')
 
 teste = 0
 
+cdhitf = argumentos.file
+cdhit_sequences = SeqIO.parse(open(cdhitf),'fasta')
+    for cdhitseq in cdhit_sequences:
+        name_clu = cdhitseq.id
+        print ("name_clu", name_clu "\n")
+
+"""
 for clusterline in allClusterLines:   
     elements = clusterline.rstrip('\n')
     element = elements.split()
@@ -96,4 +103,4 @@ for clusterline in allClusterLines:
                     outfasta.write(new_sequence)
                     print ("\t\t inserting ",  cabid, " ", name, " ", fastaname, "\n") 
 
-
+"""
