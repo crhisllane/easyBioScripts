@@ -68,8 +68,9 @@ for cdhitseq in cdhit_sequences:
                 fastaname1 = re.sub("^>[A-Z][A-Z]_", "" ,fastaname)
                 fastaname1 = re.sub(".proteins.ffa", "" ,fastaname1)
                 cab_id = re.search(r"_.*", fastaname1)
-                cab_id = re.sub("^_", "" ,cab_id[0])
-                print (fastaname, " ", cab_id, "\n")
+                realseqid = re.sub("^_", "" ,cab_id[0])
+                fastaFileName = re.search(r".*\.fna", fastaname1)
+                print (fastaname, " ", cab_id, " ",  fastaFileName, "\n")
     else:
         print ("OUT cluster: less than size", name_clu, "\n")    
 
