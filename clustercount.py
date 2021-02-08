@@ -2,6 +2,7 @@ import sys
 import os
 import re
 from optparse import OptionParser
+from Bio import SeqIO
 
 argv = OptionParser()
 
@@ -48,11 +49,11 @@ log = open ('ERROR.log', 'w+')
 teste = 0
 
 for clusterline in allClusterLines:   
-    print ("take sequences from",  clusterline, "\n") 
     elements = clusterline.rstrip('\n')
     element = elements.split()
     fileout2 = 0
     if re.match(r"^>", element[0]):
+        print ("take sequences from",  clusterline, "\n") 
         idclust = element[0] + " " + str(element[1])
         fileout = element[0] + "_" + str(element[1]) + ".fasta"
         fileout2 = re.sub(">", "" ,fileout)
