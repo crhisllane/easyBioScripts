@@ -21,6 +21,7 @@ idclust = 0
 limit = argumentos.size
 clusterok = []
 
+#taking the clusters with number of members according to the size informed.
 for clusterline in allClusterLines:
     elements = clusterline.rstrip('\n')
     element = elements.split()
@@ -72,7 +73,7 @@ for idcluok in clusterok:
                 if re.match(r"^>PD", fastaname):
                     fastaFileName = fastaFileName[0] + ".genes.fna" 
                 elif re.match(r"^>SM", fastaname):
-                    fastaFileName = fastaFileName[0] + ".ffa" 
+                    fastaFileName = fastaFileName[0] + ".ffn" 
                 else:
                     log.write(fastaname + ' no ^>PD or ^>SM')
 
