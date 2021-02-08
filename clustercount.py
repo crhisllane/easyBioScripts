@@ -47,21 +47,26 @@ log = open ('ERROR.log', 'w+')
 
 teste = 0
 
-for clusterline in allClusterLines:
-    if clusterline in clusterok:
-        print ("take sequences from",  clusterfile, "\n") 
-        elements = clusterline.rstrip('\n')
-        element = elements.split()
-        fileout2 = 0
-        if re.match(r"^>", element[0]):
-            idclust = element[0] + " " + str(element[1])
-            fileout = element[0] + "_" + str(element[1]) + ".fasta"
-            fileout2 = re.sub(">", "" ,fileout)
+for clusterline in allClusterLines:   
+    print ("take sequences from",  clusterfile, "\n") 
+    elements = clusterline.rstrip('\n')
+    element = elements.split()
+    fileout2 = 0
+    if re.match(r"^>", element[0]):
+        idclust = element[0] + " " + str(element[1])
+        fileout = element[0] + "_" + str(element[1]) + ".fasta"
+        fileout2 = re.sub(">", "" ,fileout)
+        equalcluster = "nao"
 
+        if idclust in clusterok:
+            equalcluster = "tem"
             outfasta = open (fileout2, 'w+')
-            print ("\t making a file",  fileout2, "\n") 
-  
+            print ("\t making a file",  idclust, " ", fileout2, "\n")
         else:
+            print ("\t OUT cluster: less than size",  idclust, "\n") 
+  
+    else:
+        if equalcluster == "tem":
             fastaname = re.sub("\.\.\.", "" ,element[2])
             fastaname1 = re.sub("^>[A-Z][A-Z]_", "" ,fastaname)
             fastaname1 = re.sub(".proteins.ffa", "" ,fastaname1)
