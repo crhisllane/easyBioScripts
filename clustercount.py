@@ -50,7 +50,7 @@ print("clusters ok")
 log = open ('ERROR.log', 'w+')
 
 teste = 0
-
+ini = ">"
 cdhit_sequences = SeqIO.parse(open("FILECLUSTER.temp"),'fasta')
 for cdhitseq in cdhit_sequences:
     
@@ -61,8 +61,15 @@ for cdhitseq in cdhit_sequences:
         print ("name_clu", name_clu, "\n")
         seqs_clus = re.sub("[0-9]*aa,", "----" ,seqs_clus)
         each_id_seq = seqs_clus.split("----")
-        for id_seq in each_id_seq:            
-            print ("\t---", id_seq, "\n")
+        for id_seq in each_id_seq:  
+            if ini in id_seq:           
+                print ("\t---", id_seq, "\n")
+                fastaname = re.sub("\.\.\..*", "" ,id_seq)
+                fastaname1 = re.sub("^ >[A-Z][A-Z]_", "" ,fastaname)
+                fastaname1 = re.sub(".proteins.ffa", "" ,fastaname1)
+                cab_id = re.search(r"_.*", fastaname1)
+                cab_id = re.sub("^_", "" ,cab_id[0])
+                print (fastaname, " ", cab_id, "\n")
     else:
         print ("OUT cluster: less than size", name_clu, "\n")    
 
