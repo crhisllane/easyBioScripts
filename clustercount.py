@@ -55,7 +55,7 @@ cdhit_sequences = SeqIO.parse(open("FILECLUSTER.temp"),'fasta')
 for cdhitseq in cdhit_sequences:
     name_clu, seqs_clus = cdhitseq.id, str(cdhitseq.seq)
     print ("name_clu", name_clu, "\n")
-    seqs_clus = re.sub("\.\.\. at [a-zA-Z0-9\:/\.]*%", "\n" ,seqs_clus)
+    seqs_clus = re.sub("^[0-9]*\t[0-9]*aa,", "\n" ,seqs_clus)
     print ("\tseqs_clu", seqs_clus, "\n")
 
 
