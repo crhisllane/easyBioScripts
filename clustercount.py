@@ -52,8 +52,7 @@ log = open ('ERROR.log', 'w+')
 teste = 0
 ini = ">"
 cdhit_sequences = SeqIO.parse(open("FILECLUSTER.temp"),'fasta')
-for cdhitseq in cdhit_sequences:
-    
+for cdhitseq in cdhit_sequences:    
     name_clu, seqs_clus = cdhitseq.id, str(cdhitseq.seq)
     name_clu = re.sub("^", ">" ,name_clu)
     print ("analise", name_clu, "\n")
@@ -71,6 +70,24 @@ for cdhitseq in cdhit_sequences:
                 realseqid = re.sub("^_", "" ,cab_id[0])
                 fastaFileName = re.search(r".*\.fna", fastaname1)
                 print (fastaname, " ", realseqid, " ",  fastaFileName[0], "\n")
+                if re.match(r"^>PD", fastaname):
+                    fastaFileName = fastaFileName[0] + ".genes.fna"
+
+                elif re.match(r"^>SM", fastaname):
+                    fastaFileName = fastaFileName[0] + ".ffn"
+
+                else:
+                    log.write(fastaname + ' no ^>PD or ^>SM')
+                
+                fasta_sequences = SeqIO.parse(open(fastaFileName),'fasta')
+                for fasta in fasta_sequences:
+                    name, sequence = fasta.id, str(fasta.seq)
+                    if re.search(r'.ffn', fastaFileName): 
+                        name = re.sub(">[a-zA-Z0-9]*_[a-zA-Z0-9]* ", ">" ,name)
+                    if realseqid == name:
+                        new_sequence = fastaname + '\n' + sequence + '\n'
+                        outfasta.write(new_sequence)
+                        print ("\t\t inserting ",  realseqid, " ", name, " ", fastaname, "\n") 
     else:
         print ("OUT cluster: less than size", name_clu, "\n")    
 
