@@ -74,17 +74,12 @@ for clusterline in allClusterLines:
             cabid = re.search(r"_.*", fastaname1)
             cabid = re.sub("^_", "" ,cabid[0])
             fastaFileName = re.search(r".*\.fna", fastaname1)
-            checkname = 0
             if re.match(r"^>PD", fastaname):
                 fastaFileName = fastaFileName[0] + ".genes.fna"
-                checkname = re.search(r".ffa_*", fastaname)
-                checkname = re.sub("\.ffa_", "" , checkname[0])
-                print ("teste", checkname, "\n")
+
             elif re.match(r"^>SM", fastaname):
                 fastaFileName = fastaFileName[0] + ".ffn"
-                checkname = re.search(r".fna_*", fastaname)
-                checkname = re.sub("\.fna_", "" , checkname[0])
-                print ("teste", checkname, "\n") 
+
             else:
                 log.write(fastaname + ' no ^>PD or ^>SM')
 
@@ -94,9 +89,9 @@ for clusterline in allClusterLines:
             fasta_sequences = SeqIO.parse(open(fastaFileName),'fasta')
             for fasta in fasta_sequences:
                 name, sequence = fasta.id, str(fasta.seq)
-                if checkname in name:
+                if cabid in name:
                     new_sequence = name + '\n' + sequence + '\n'
                     outfasta.write(new_sequence)
-                    #print ("\t inserting ",  checkname, " ", name, "\n") 
+                    print ("\t inserting ",  cabid, " ", name, "\n") 
 
 
