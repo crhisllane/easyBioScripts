@@ -48,42 +48,42 @@ log = open ('ERROR.log', 'w+')
 teste = 0
 
 for clusterline in allClusterLines:
-    if clusterline in clusterok: 
+    if clusterline in clusterok:
+        print ("take sequences from",  clusterfile, "\n") 
         elements = clusterline.rstrip('\n')
         element = elements.split()
         fileout2 = 0
         if re.match(r"^>", element[0]):
-            teste = 0
             idclust = element[0] + " " + str(element[1])
-            
-            if idcluok == idclust:
-                teste = 1
-                fileout = element[0] + "_" + str(element[1]) + ".fasta"
-                fileout2 = re.sub(">", "" ,fileout)
+            fileout = element[0] + "_" + str(element[1]) + ".fasta"
+            fileout2 = re.sub(">", "" ,fileout)
 
-                outfasta = open (fileout2, 'w+')  
+            outfasta = open (fileout2, 'w+')
+            print ("\t making a file",  fileout2, "\n") 
+  
         else:
-            if teste == 1:
-                fastaname = re.sub("\.\.\.", "" ,element[2])
-                fastaname1 = re.sub("^>[A-Z][A-Z]_", "" ,fastaname)
-                fastaname1 = re.sub(".proteins.ffa", "" ,fastaname1)
-                cabid = re.search(r"_.*", fastaname1)
-                cabid = re.sub("^_", "" ,cabid[0])
-                fastaFileName = re.search(r".*\.fna", fastaname1)
+            fastaname = re.sub("\.\.\.", "" ,element[2])
+            fastaname1 = re.sub("^>[A-Z][A-Z]_", "" ,fastaname)
+            fastaname1 = re.sub(".proteins.ffa", "" ,fastaname1)
+            cabid = re.search(r"_.*", fastaname1)
+            cabid = re.sub("^_", "" ,cabid[0])
+            fastaFileName = re.search(r".*\.fna", fastaname1)
 
-                if re.match(r"^>PD", fastaname):
-                    fastaFileName = fastaFileName[0] + ".genes.fna" 
-                elif re.match(r"^>SM", fastaname):
-                    fastaFileName = fastaFileName[0] + ".ffn" 
-                else:
-                    log.write(fastaname + ' no ^>PD or ^>SM')
+            if re.match(r"^>PD", fastaname):
+                fastaFileName = fastaFileName[0] + ".genes.fna" 
+            elif re.match(r"^>SM", fastaname):
+                fastaFileName = fastaFileName[0] + ".ffn" 
+            else:
+                log.write(fastaname + ' no ^>PD or ^>SM')
 
 
-                print (fastaFileName, "\t", cabid)
+            print ("\t", fastaFileName, "\t", cabid)
 
-                fasta_sequences = SeqIO.parse(open(fastaFileName),'fasta')
-                for fasta in fasta_sequences:
-                    name, sequence = fasta.id, str(fasta.seq)
-                    new_sequence = fastaname + '\n' + sequence + '\n'
-                    outfasta.write(new_sequence)
+            fasta_sequences = SeqIO.parse(open(fastaFileName),'fasta')
+            for fasta in fasta_sequences:
+                name, sequence = fasta.id, str(fasta.seq)
+                new_sequence = fastaname + '\n' + sequence + '\n'
+                outfasta.write(new_sequence)
+                print ("\t inserting ",  name, "\n") 
+
 
