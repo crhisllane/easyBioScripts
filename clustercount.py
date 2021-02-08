@@ -48,7 +48,7 @@ log = open ('ERROR.log', 'w+')
 teste = 0
 
 for clusterline in allClusterLines:   
-    print ("take sequences from",  clusterfile, "\n") 
+    print ("take sequences from",  clusterline, "\n") 
     elements = clusterline.rstrip('\n')
     element = elements.split()
     fileout2 = 0
