@@ -46,7 +46,7 @@ if (lastcount >= limit):
     #print (idclust, "=", lastcount)
     clusterok.append(idclust)
 
-print(clusterok)
+print("clusters ok")
 log = open ('ERROR.log', 'w+')
 
 teste = 0
@@ -55,7 +55,7 @@ cdhit_sequences = SeqIO.parse(open("FILECLUSTER.temp"),'fasta')
 for cdhitseq in cdhit_sequences:
     
     name_clu, seqs_clus = cdhitseq.id, str(cdhitseq.seq)
-    
+    name_clu = re.sub("^", ">" ,name_clu)
     print ("name_clu", name_clu, "\n")
     if name_clu in clusterok:
         print ("name_clu", name_clu, "\n")
