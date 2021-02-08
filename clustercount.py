@@ -52,7 +52,7 @@ cdhitf = argumentos.file
 cdhit_sequences = SeqIO.parse(open(cdhitf),'fasta')
 for cdhitseq in cdhit_sequences:
     name_clu = cdhitseq.id
-    print ("name_clu", name_clu "\n")
+    print ("name_clu", name_clu, "\n")
 
 """
 for clusterline in allClusterLines:   
