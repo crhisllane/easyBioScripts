@@ -53,8 +53,10 @@ teste = 0
 
 cdhit_sequences = SeqIO.parse(open("FILECLUSTER.temp"),'fasta')
 for cdhitseq in cdhit_sequences:
-    name_clu = cdhitseq.id
+    name_clu, seqs_clus = cdhitseq.id, str(cdhitseq.seq)
     print ("name_clu", name_clu, "\n")
+    print ("\tseqs_clu", seqs_clus, "\n")
+
 
 """
 for clusterline in allClusterLines:   
