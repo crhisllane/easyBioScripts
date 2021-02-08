@@ -46,8 +46,9 @@ print(clusterok)
 log = open ('ERROR.log', 'w+')
 
 teste = 0
-for idcluok in clusterok: 
-    for clusterline in allClusterLines:
+
+for clusterline in allClusterLines:
+    if clusterline in clusterok: 
         elements = clusterline.rstrip('\n')
         element = elements.split()
         fileout2 = 0
