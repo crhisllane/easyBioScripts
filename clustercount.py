@@ -79,12 +79,12 @@ for clusterline in allClusterLines:
                 fastaFileName = fastaFileName[0] + ".genes.fna"
                 checkname = re.search(r".ffa_*", fastaname)
                 checkname = re.sub("\.ffa_", "" , checkname[0])
-                print (checkname)
+                print ("teste", checkname, "\n")
             elif re.match(r"^>SM", fastaname):
                 fastaFileName = fastaFileName[0] + ".ffn"
                 checkname = re.search(r".fna_*", fastaname)
                 checkname = re.sub("\.fna_", "" , checkname[0])
-                print (checkname) 
+                print ("teste", checkname, "\n") 
             else:
                 log.write(fastaname + ' no ^>PD or ^>SM')
 
@@ -97,6 +97,6 @@ for clusterline in allClusterLines:
                 if checkname in name:
                     new_sequence = name + '\n' + sequence + '\n'
                     outfasta.write(new_sequence)
-                    print ("\t inserting ",  checkname, " ", name, "\n") 
+                    #print ("\t inserting ",  checkname, " ", name, "\n") 
 
 
