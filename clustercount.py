@@ -3,6 +3,7 @@ import os
 import re
 from optparse import OptionParser
 from Bio import SeqIO
+import concurrent.futures
 
 argv = OptionParser()
 
@@ -49,10 +50,11 @@ if (lastcount >= limit):
 print("clusters ok")
 log = open ('ERROR.log', 'w+')
 
-teste = 0
-ini = ">"
-cdhit_sequences = SeqIO.parse(open("FILECLUSTER.temp"),'fasta')
-for cdhitseq in cdhit_sequences:    
+
+
+#for cdhitseq in cdhit_sequences:
+def process_cdhitcluster(cdhitseq):
+    ini = ">"    
     name_clu, seqs_clus = cdhitseq.id, str(cdhitseq.seq)
     name_clu = re.sub("^", ">" ,name_clu)
     print ("analise", name_clu, "\n")
@@ -96,6 +98,10 @@ for cdhitseq in cdhit_sequences:
     else:
         print ("OUT cluster: less than size", name_clu, "\n")    
 
+
+cdhit_sequences = SeqIO.parse(open("FILECLUSTER.temp"),'fasta')
+with concurrent.futures.ProcessPoolExecutor() as executor:
+    executor.map(process_cdhitcluster, cdhit_sequences)
 
 """
 for clusterline in allClusterLines:   
