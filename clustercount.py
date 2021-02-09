@@ -59,7 +59,7 @@ def process_cdhitcluster(cdhitseq):
     name_clu = re.sub("^", ">" ,name_clu)
     print ("analise", name_clu, "\n")
     if name_clu in clusterok:
-        print ("name_clu", name_clu, "\n")
+        print ("\tname_cluster ok", name_clu, "\n")
 
         fileout = name_clu + ".fasta"
         fileout = re.sub(">", "" ,fileout)
@@ -69,14 +69,14 @@ def process_cdhitcluster(cdhitseq):
 
         for id_seq in each_id_seq:  
             if ini in id_seq:           
-                print ("\t---", id_seq, "\n")
+                #print ("\t---", id_seq, "\n")
                 fastaname = re.sub("\.\.\..*", "" ,id_seq)
                 fastaname1 = re.sub("^>[A-Z][A-Z]_", "" ,fastaname)
                 fastaname1 = re.sub(".proteins.ffa", "" ,fastaname1)
                 cab_id = re.search(r"_.*", fastaname1)
                 realseqid = re.sub("^_", "" ,cab_id[0])
                 fastaFileName = re.search(r".*\.fna", fastaname1)
-                print (fastaname, " ", realseqid, " ",  fastaFileName[0], "\n")
+                #print (fastaname, " ", realseqid, " ",  fastaFileName[0], "\n")
                 if re.match(r"^>PD", fastaname):
                     fastaFileName = fastaFileName[0] + ".genes.fna"
 
@@ -94,13 +94,13 @@ def process_cdhitcluster(cdhitseq):
                     if realseqid == name:
                         new_sequence = fastaname + '\n' + sequence + '\n'
                         outfasta.write(new_sequence)
-                        print ("\t\t inserting ",  realseqid, " ", name, " ", fastaname, "\n") 
+                        #print ("\t\t inserting ",  realseqid, " ", name, " ", fastaname, "\n") 
     else:
         print ("OUT cluster: less than size", name_clu, "\n")    
 
 
 cdhit_sequences = SeqIO.parse(open("FILECLUSTER.temp"),'fasta')
-with concurrent.futures.ProcessPoolExecutor() as executor:
+with concurrent.futures.ThreadPoolExecutor(max_workers=30) as executor:
     executor.map(process_cdhitcluster, cdhit_sequences)
 
 """
