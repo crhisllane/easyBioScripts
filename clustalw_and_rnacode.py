@@ -16,7 +16,7 @@ allClusterLines = clusterfile.readlines()
 
 #for clusterline in allClusterLines:
 def process_rnacode(clusterline):
-    
+    clusterline = clusterline.rstrip('\n')
     print (clusterline, "\n")
 
     cmd1 = "clustalw2 %s"%(clusterline)
