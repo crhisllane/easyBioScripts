@@ -20,10 +20,12 @@ def process_rnacode(clusterline):
     print (clusterline, "\n")
 
     cmd1 = "clustalw2 %s"%(clusterline)
+    print ("\t", cmd1, "\n")
     os.system(cmd1)
     clusterline_Aln = re.sub(".fasta", ".aln" ,clusterline)
     clusterline_Pure = re.sub(".fasta", "" ,clusterline)
-    cmd2 = "RNAcode %s -p 0.05 >> %s.tab"%(clusterline_Aln, clusterline_Pure)
+    cmd2 = "RNAcode %s -p 0.05 > %s.tab"%(clusterline_Aln, clusterline_Pure)
+    print ("\t", cmd2, "\n")
     os.system(cmd2)
 
 
