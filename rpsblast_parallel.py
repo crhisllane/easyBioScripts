@@ -6,17 +6,8 @@ from Bio import SeqIO
 import concurrent.futures
 import glob 
 
-argv = OptionParser()
-
-argv.add_option("-I", "--Input", action = "store", dest = "file", type ="string",
-                   help = "cdhit fasta")
-(argumentos, palha_que_nao_interessa) = argv.parse_args()
-
-#clusterfile = open (argumentos.file, 'r')
-#allClusterLines = clusterfile.readlines()
-
-cmd = "awk \'BEGIN {n_seq=0;} /^>/ {if(n_seq%60000==0){file=sprintf(\"group_%d.fa\",n_seq);} print >> file; n_seq++; next;} { print >> file; }\' < %s"%(argumentos.file)
-os.system(cmd)
+#before using this script it is necessary to break the fasta file into smaller numbers
+#awk 'BEGIN {n_seq=0;} /^>/ {if(n_seq%60000==0){file=sprintf("group_%d.fa",n_seq);} print >> file; n_seq++; next;} { print >> file; }' < completeSmall_cdhit.out 
 
 #for clusterline in allClusterLines:
 def process_rpsblast(clusterline):
