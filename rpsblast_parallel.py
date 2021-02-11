@@ -15,7 +15,7 @@ argv.add_option("-I", "--Input", action = "store", dest = "file", type ="string"
 #clusterfile = open (argumentos.file, 'r')
 #allClusterLines = clusterfile.readlines()
 
-cmd = "awk \'BEGIN {n_seq=0;} /^>/ {if(n_seq%60000==0){file=sprintf(\"group_%d.fa\",n_seq);} print >> file; n_seq++; next;} { print >> file; }\' < %s"%(clusterline, clusterline_Pure)
+cmd = "awk \'BEGIN {n_seq=0;} /^>/ {if(n_seq%60000==0){file=sprintf(\"group_%d.fa\",n_seq);} print >> file; n_seq++; next;} { print >> file; }\' < %s"%(argumentos.file)
 os.system(cmd)
 
 #for clusterline in allClusterLines:
