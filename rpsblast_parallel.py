@@ -36,5 +36,5 @@ path = os.getcwd()
 path = str(path) + '/group*' 
 files_fasta =  glob.glob(path) 
     
-with concurrent.futures.ProcessPoolExecutor(max_workers=50) as executor:
+with concurrent.futures.ProcessPoolExecutor(max_workers=30) as executor:
     executor.map(process_rpsblast, files_fasta)
