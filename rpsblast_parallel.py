@@ -31,7 +31,7 @@ def batch_iterator(iterator, batch_size):
         batch = []
         while len(batch) < batch_size:
             try:
-                entry = iterator.next()
+                next(entry)
             except StopIteration:
                 entry = None
             if entry is None:
@@ -40,7 +40,7 @@ def batch_iterator(iterator, batch_size):
             batch.append(entry)
         if batch:
             yield batch
-            
+
 #for clusterline in allClusterLines:
 def process_rpsblast(clusterline):
     clusterline = clusterline.rstrip('\n')
