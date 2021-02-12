@@ -26,7 +26,8 @@ def process_rpsblast(clusterline):
     clusterline = clusterline.rstrip('\n')
     print (clusterline, "\n")
     clusterline_Pure = re.sub(".fasta", "" ,clusterline)
-    cmd1 = "rpsblast+ -db %s -query %s -out %s_CDD.rpsblast -num_threads 40 -evalue 0.01  -outfmt '7 qseqid sseqid pident nident qlen slen length mismatch gapopen qstart qend sstart send evalue bitscore qcovs staxis frames qseq sseq'"%(db, clusterline, clusterline_Pure)
+    db_name = re.sub(".*/", "" ,clusterline)
+    cmd1 = "rpsblast+ -db %s -query %s -out %s_%s.rpsblast -num_threads 40 -evalue 0.01  -outfmt '7 qseqid sseqid pident nident qlen slen length mismatch gapopen qstart qend sstart send evalue bitscore qcovs staxis frames qseq sseq'"%(db, clusterline, clusterline_Pure, db_name)
     os.system(cmd1)
 
 
