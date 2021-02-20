@@ -25,14 +25,14 @@ db = db.rstrip('\n')
 def process_rpsblast(clusterline):
     clusterline = clusterline.rstrip('\n')
     print (clusterline, "\n")
-    clusterline_Pure = re.sub(".fasta", "" ,clusterline)
+    clusterline_Pure = re.sub(".faa", "" ,clusterline)
     db_name = re.sub(".*/", "" ,db)
     cmd1 = "rpsblast+ -db %s -query %s -out %s_%s.rpsblast -num_threads 40 -evalue 0.01  -outfmt '7 qseqid sseqid pident nident qlen slen length mismatch gapopen qstart qend sstart send evalue bitscore qcovs staxis frames qseq sseq'"%(db, clusterline, clusterline_Pure, db_name)
     os.system(cmd1)
 
 
 path = os.getcwd()
-path = str(path) + '/group*' 
+path = str(path) + '/*.faa' 
 files_fasta =  glob.glob(path) 
     
 with concurrent.futures.ProcessPoolExecutor(max_workers=30) as executor:
