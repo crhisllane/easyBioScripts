@@ -24,19 +24,18 @@ def process_count(rpsfile):
     rps_open = open (rpsfile, 'r')
     rps_all_lines = rps_open.readlines()
     
-    rps_lines = rps_all_lines.split('\n')
-
-    print("lines---", rps_lines, "\n")
-
-    rps_elements, = rps_lines.split()
-    print("teste", rps_elements[0])
- 
-    if re.match(r"Query=", rps_elements[0]):
-        print ("bateu aqui", rps_elements[0], "\n")
-    
-    if re.match(r"CDD:", rps_elements[0]):
-        print ("-------- aqui", rps_elements[0], "\n")
+    for rps_lines in rps_all_lines:
         
+        rps_lines = rps_all_lines.rstrip('\n')
+        rps_elements, = rps_lines.split()
+        print("teste", rps_elements[0])
+    
+        if re.match(r"Query=", rps_elements[0]):
+            print ("bateu aqui", rps_elements[0], "\n")
+        
+        if re.match(r"CDD:", rps_elements[0]):
+            print ("-------- aqui", rps_elements[0], "\n")
+            
 
 path = os.getcwd()
 path = str(path) + '/*.rpsblast' 
