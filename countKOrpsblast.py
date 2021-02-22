@@ -4,6 +4,7 @@ import re
 from optparse import OptionParser
 from Bio import SeqIO
 import concurrent.futures
+import glob 
 
 argv = OptionParser()
 
