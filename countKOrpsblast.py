@@ -30,10 +30,12 @@ def process_count(rpsfile):
         #print("teste", rps_elements[0])
     
         if re.match(r"Query=", rps_elements[0]):
-            Query = rps_elements[1].rstrip('\n')
+            Query = rps_elements[1]
+            Query = Query.rstrip('\n')
             print ("\n", Query)
         if re.match(r"CDD:", rps_elements[0]):
-            KO = rps_elements[2].rstrip('\n')
+            KO = rps_elements[2]
+            KO = KO.rstrip('\n')
             print ("\t", KO)
             
 
