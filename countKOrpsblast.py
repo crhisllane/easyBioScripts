@@ -33,7 +33,7 @@ def process_count(rpsfile):
             print ("bateu aqui", rps_elements[0], "\n")
         
         if re.match(r"CDD:", rps_elements[0]):
-            print ("-------- aqui", rps_elements[0], "\n")
+            print ("-------- aqui", rps_elements[0], "\n", rps_elements[1], "\n")
             
 
 path = os.getcwd()
