@@ -31,7 +31,7 @@ def process_count(rpsfile):
         #print("teste", rps_elements[0])
     
         if re.match(r"Query=", rps_elements[0]):
-            print(Query, "\t", KO, "\n")
+            #print(Query, "\t", KO, "\n")
             KO = []
             Query = rps_elements[1]
             Query = Query.rstrip('\n')
@@ -40,9 +40,10 @@ def process_count(rpsfile):
             KOone = rps_elements[2]
             KOone = KOone.rstrip('\n')
             KO.append(KOone)
-            #print ("\t", KO)
+            if KOone in KOs_line:
+                print (Query, "\t", KOone, "\n")
     
-    print(Query, "\t", KO, "\n")
+    #print(Query, "\t", KO, "\n")
         
 
             
