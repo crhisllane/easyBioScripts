@@ -24,10 +24,10 @@ def process_count(rpsfile):
     rps_lines = rps_all_lines.rstrip('\n')
     rps_elements, = rps_lines.split()
  
-    if re.match(r"^Query=", rps_elements[0])
+    if re.match(r"^Query=", rps_elements[0]):
         print ("bateu aqui", rps_elements[0], "\n")
     
-    if re.match(r"^CDD:", rps_elements[0])
+    if re.match(r"^CDD:", rps_elements[0]):
         print ("-------- aqui", rps_elements[0], "\n")
         
 
