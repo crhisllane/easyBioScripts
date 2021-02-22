@@ -25,7 +25,8 @@ def process_count(rpsfile):
     rps_all_lines = rps_open.readlines()
     
     for rps_lines in rps_all_lines:
-        
+        print("LINHA", rps_lines)
+
         rps_lines = rps_all_lines.rstrip('\n')
         rps_elements, = rps_lines.split()
         print("teste", rps_elements[0])
