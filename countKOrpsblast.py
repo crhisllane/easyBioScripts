@@ -24,19 +24,27 @@ def process_count(rpsfile):
     rps_open = open (rpsfile, 'r')
     rps_all_lines = rps_open.readlines()
     Query = 0
+    KO = []
     for rps_lines in rps_all_lines:
 
         rps_elements = rps_lines.split(" ")
         #print("teste", rps_elements[0])
     
         if re.match(r"Query=", rps_elements[0]):
+            print(Query, "\t", KO, "\n")
+            KO = []
             Query = rps_elements[1]
             Query = Query.rstrip('\n')
-            print ("\n", Query)
+            #print ("\n", Query)
         if re.match(r"CDD:", rps_elements[0]):
-            KO = rps_elements[2]
-            KO = KO.rstrip('\n')
-            print ("\t", KO)
+            KOone = rps_elements[2]
+            KOone = KOone.rstrip('\n')
+            KO.append(KOone)
+            #print ("\t", KO)
+    
+    print(Query, "\t", KO, "\n")
+        
+
             
 
 path = os.getcwd()
