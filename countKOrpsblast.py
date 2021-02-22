@@ -36,6 +36,7 @@ def process_count(rpsfile):
 path = os.getcwd()
 path = str(path) + '/*.rpsblast' 
 files_rpsblast =  glob.glob(path) 
+print("file", files_rpsblast, "\n")
     
 with concurrent.futures.ProcessPoolExecutor(max_workers=30) as executor:
     executor.map(process_count, files_rpsblast)
