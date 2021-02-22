@@ -19,7 +19,8 @@ KOs_line = KOs_file.readlines()
 
 
 def process_count(rpsfile):
-    
+    print("file", rpsfile, "\n")
+  
     rps_open = open (rpsfile, 'r')
     rps_all_lines = rps_open.readlines()
     rps_lines = rps_all_lines.rstrip('\n')
@@ -36,7 +37,6 @@ def process_count(rpsfile):
 path = os.getcwd()
 path = str(path) + '/*.rpsblast' 
 files_rpsblast =  glob.glob(path) 
-print("file", files_rpsblast, "\n")
     
 with concurrent.futures.ProcessPoolExecutor(max_workers=30) as executor:
     executor.map(process_count, files_rpsblast)
