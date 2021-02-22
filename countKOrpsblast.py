@@ -28,8 +28,8 @@ def process_count(rpsfile):
         #print("LINHA", rps_lines)
 
         #rps_one = rps_lines.rstrip('\n')
-        rps_elements, = rps_lines.split('\t')
-        print("teste", rps_elements[0])
+        #rps_elements, = rps_lines.split('\t')
+        print("teste", rps_lines[0])
     
         #if re.match(r"Query=", rps_elements[0]):
         #    print ("bateu aqui", rps_elements[0], "\n")
