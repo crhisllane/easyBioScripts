@@ -21,6 +21,7 @@ eggnog_lines = eggnog_file.readlines()
 
 
 for eggnog_line in eggnog_lines:
+    eggnog_line = eggnog_line.rstrip('\n')
     if (eggnog_line.startswith("Genome")):
         print (eggnog_line)
 
