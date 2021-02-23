@@ -8,11 +8,15 @@ import glob
 
 argv = OptionParser()
 
+argv.add_option("-I", "--Input", action = "store", dest = "file", type ="string",
+                   help = "rpsblast file complete")
 argv.add_option("-f","--first", action="store", dest="firstid", type="string",
                     help = "first id in eggnog out" )
 
 (argumentos, palha_que_nao_interessa) = argv.parse_args()
 
+rpsall_file = open (argumentos.file, 'r')
+rpsfiles = rpsall_file.readlines()
 
 namefirst = argumentos.firstid
 
@@ -42,7 +46,7 @@ tab9 = 0
 tab10 = 0
 
 print("Genome\tsugar_transport_system\tglycerol3phosphate_transport\ttricarboxylate_transporter\taminoacid_transport\tspermidine_putrescine_transport\tproline_glycine_betaine_transport\tnitrate_sulfonate_bicarbonate_transport\tFe3+_transport\tuncharacterized_transport\tABC-type_transport\n")
-def process_count(rpsfile):
+for rpsfile in rpsfiles:
     print("file", rpsfile, "\n")
   
     rps_open = open (rpsfile, 'r')
