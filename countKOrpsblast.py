@@ -114,7 +114,7 @@ for rps_lines in rps_all_lines:
             
         
         else:
-            print(namefirst,"\t",tab1,"\t",tab2,"\t",tab3,"\t",tab4,"\t",tab5,"\t",tab6,"\t",tab7,"\t",tab8,"\t",tab9,"\t",tab10,"\n")
+            print(namefirst,"\t",tab1,"\t",tab2,"\t",tab3,"\t",tab4,"\t",tab5,"\t",tab6,"\t",tab7,"\t",tab8,"\t",tab9,"\t",tab10)
             #saida = (" %s \t %s \t %s \t %s \t %s \t %s \t %s \t %s \t %s \t %s \t %s \t %s \t %s \n") %(namefirst, tab1, tab2,  tab3, tab4, tab5, tab6, tab7, tab8, tab9, tab10, tab11, tab12)
             #OUT.write = saida
             namefirst = name[0]
@@ -130,6 +130,6 @@ for rps_lines in rps_all_lines:
             tab10 = tamanho10
     
 
-print(namefirst,"\t",tab1,"\t",tab2,"\t",tab3,"\t",tab4,"\t",tab5,"\t",tab6,"\t",tab7,"\t",tab8,"\t",tab9,"\t",tab10, "\n")
+print(namefirst,"\t",tab1,"\t",tab2,"\t",tab3,"\t",tab4,"\t",tab5,"\t",tab6,"\t",tab7,"\t",tab8,"\t",tab9,"\t",tab10)
      
 
