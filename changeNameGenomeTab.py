@@ -5,6 +5,7 @@ from optparse import OptionParser
 from Bio import SeqIO
 import concurrent.futures
 import glob 
+import subprocess
 
 argv = OptionParser()
 
@@ -24,3 +25,7 @@ for eggnog_line in eggnog_lines:
         rps_elements = eggnog_line.split("\t")
         name =  rps_elements[0]
         print (name, "\n")
+         
+        comando = "grep %s *"%(name)
+        res = subprocess.check_output(comando, shell=True)
+        print (res, "\n")
