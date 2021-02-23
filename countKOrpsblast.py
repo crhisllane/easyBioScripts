@@ -66,7 +66,7 @@ for rps_lines in rps_all_lines:
         GOone = rps_elements[2]
         GOone = GOone.rstrip('\n')
         GOone = GOone.split(",")
-        print("------", GOone, "\n")
+        #print("------", GOone, "\n")
         
         combine1 = set(GOone) & set(sugar_transport_system)
         tamanho1 = len(combine1)
