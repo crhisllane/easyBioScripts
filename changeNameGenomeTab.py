@@ -21,7 +21,10 @@ eggnog_lines = eggnog_file.readlines()
 
 
 for eggnog_line in eggnog_lines:
-    if not (eggnog_line.startswith("Genome")):
+    if (eggnog_line.startswith("Genome")):
+        print (eggnog_line)
+
+    else:    
         rps_elements = eggnog_line.split("\t")
         name =  rps_elements[0]
         print (name, "\n")
