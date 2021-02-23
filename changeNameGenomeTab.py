@@ -35,4 +35,4 @@ for eggnog_line in eggnog_lines:
         resp = re.sub(".fna.out.faa..*", "" ,resp)
         resp = re.sub("^b\'", "" ,resp)
         outputLine = re.sub(name, resp ,eggnog_line)
-        print (outputLine, "\n")
+        print (outputLine)
