@@ -27,7 +27,7 @@ for eggnog_line in eggnog_lines:
     else:    
         rps_elements = eggnog_line.split("\t")
         name =  rps_elements[0]
-        print (name, "\n")
+        #print (name, "\n")
          
         comando = "grep %s *.faa | sed 's/_[0-9]* .*//' | sort | uniq"%(name)
         resp = subprocess.check_output(comando, shell=True)
