@@ -98,17 +98,17 @@ def process_count(rpsfile):
             
             if namefirst == name[0]:
             #print("-----tem", combine, "\t", tamanho, "\n")
-            tab1 = tamanho1 + tab1
-            tab2 = tamanho2 + tab2
-            tab3 = tamanho3 + tab3
-            tab4 = tamanho4 + tab4
-            tab5 = tamanho5 + tab5
-            tab6 = tamanho6 + tab6
-            tab7 = tamanho7 + tab7
-            tab8 = tamanho8 + tab8
-            tab9 = tamanho9 + tab9
-            tab10 = tamanho10 + tab10
-            
+                tab1 = tamanho1 + tab1
+                tab2 = tamanho2 + tab2
+                tab3 = tamanho3 + tab3
+                tab4 = tamanho4 + tab4
+                tab5 = tamanho5 + tab5
+                tab6 = tamanho6 + tab6
+                tab7 = tamanho7 + tab7
+                tab8 = tamanho8 + tab8
+                tab9 = tamanho9 + tab9
+                tab10 = tamanho10 + tab10
+                
             
             else:
                 print(namefirst,"\t",tab1,"\t",tab2,"\t",tab3,"\t",tab4,"\t",tab5,"\t",tab6,"\t",tab7,"\t",tab8,"\t",tab9,"\t",tab10,"\n")
