@@ -45,12 +45,13 @@ def process_count(rpsfile):
             KO = []
             Query = rps_elements[1]
             Query = Query.rstrip('\n')
+            name = Query.split("_")
             #print ("\n", Query)
         if re.match(r"CDD:", rps_elements[0]):
             KOone = rps_elements[2]
             KOone = KOone.rstrip('\n')
             KO.append(KOone)
-            print (Query, "\t", KOone, "\n")
+            print (name[0], "\t", KOone, "\n")
             #if KOone in KOs_line:
                 #print (Query, "\t", KOone, "\n")
     
