@@ -65,7 +65,9 @@ for rps_lines in rps_all_lines:
     if re.match(r"CDD:", rps_elements[0]):
         GOone = rps_elements[2]
         GOone = GOone.rstrip('\n')
-
+        GOone = GOone.split(",")
+        print("------", GOone, "\n")
+        
         combine1 = set(GOone) & set(sugar_transport_system)
         tamanho1 = len(combine1)
 
@@ -131,9 +133,3 @@ for rps_lines in rps_all_lines:
 print(namefirst,"\t",tab1,"\t",tab2,"\t",tab3,"\t",tab4,"\t",tab5,"\t",tab6,"\t",tab7,"\t",tab8,"\t",tab9,"\t",tab10, "\n")
      
 
-path = os.getcwd()
-path = str(path) + '/*.rpsblast' 
-files_rpsblast =  glob.glob(path) 
-    
-with concurrent.futures.ProcessPoolExecutor(max_workers=1) as executor:
-    executor.map(process_count, files_rpsblast)
