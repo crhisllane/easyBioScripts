@@ -15,8 +15,9 @@ argv.add_option("-f","--first", action="store", dest="firstid", type="string",
 
 (argumentos, palha_que_nao_interessa) = argv.parse_args()
 
-rpsall_file = open (argumentos.file, 'r')
-rpsfiles = rpsall_file.readlines()
+
+rps_open = open (argumentos.file, 'r')
+rps_all_lines = rps_open.readlines()
 
 namefirst = argumentos.firstid
 
@@ -46,90 +47,86 @@ tab9 = 0
 tab10 = 0
 
 print("Genome\tsugar_transport_system\tglycerol3phosphate_transport\ttricarboxylate_transporter\taminoacid_transport\tspermidine_putrescine_transport\tproline_glycine_betaine_transport\tnitrate_sulfonate_bicarbonate_transport\tFe3+_transport\tuncharacterized_transport\tABC-type_transport\n")
-for rpsfile in rpsfiles:
-    print("file", rpsfile, "\n")
-  
-    rps_open = open (rpsfile, 'r')
-    rps_all_lines = rps_open.readlines()
-    Query = 0
-    KO = []
-    for rps_lines in rps_all_lines:
 
-        rps_elements = rps_lines.split(" ")
-        #print("teste", rps_elements[0])
-    
-        if re.match(r"Query=", rps_elements[0]):
-            #print(Query, "\t", KO, "\n")
-            KO = []
-            Query = rps_elements[1]
-            Query = Query.rstrip('\n')
-            name = Query.split("_")
-            #print ("\n", Query)
-        if re.match(r"CDD:", rps_elements[0]):
-            GOone = rps_elements[2]
-            GOone = GOone.rstrip('\n')
+Query = 0
+KO = []
+for rps_lines in rps_all_lines:
 
-            combine1 = set(GOone) & set(sugar_transport_system)
-            tamanho1 = len(combine1)
+    rps_elements = rps_lines.split(" ")
+    #print("teste", rps_elements[0])
 
-            combine2 = set(GOone) & set(glycerol3phosphate_transport)
-            tamanho2 = len(combine2)
+    if re.match(r"Query=", rps_elements[0]):
+        #print(Query, "\t", KO, "\n")
+        KO = []
+        Query = rps_elements[1]
+        Query = Query.rstrip('\n')
+        name = Query.split("_")
+        #print ("\n", Query)
+    if re.match(r"CDD:", rps_elements[0]):
+        GOone = rps_elements[2]
+        GOone = GOone.rstrip('\n')
 
-            combine3 = set(GOone) & set(tricarboxylate_transporter)
-            tamanho3 = len(combine3)
+        combine1 = set(GOone) & set(sugar_transport_system)
+        tamanho1 = len(combine1)
 
-            combine4 = set(GOone) & set(aminoacid_transport)
-            tamanho4 = len(combine4)
+        combine2 = set(GOone) & set(glycerol3phosphate_transport)
+        tamanho2 = len(combine2)
 
-            combine5 = set(GOone) & set(putrescine_transport)
-            tamanho5 = len(combine5)
+        combine3 = set(GOone) & set(tricarboxylate_transporter)
+        tamanho3 = len(combine3)
 
-            combine6 = set(GOone) & set(glycine_betaine_transport)
-            tamanho6 = len(combine6)
+        combine4 = set(GOone) & set(aminoacid_transport)
+        tamanho4 = len(combine4)
 
-            combine7 = set(GOone) & set(bicarbonate_transport)
-            tamanho7 = len(combine7)
+        combine5 = set(GOone) & set(putrescine_transport)
+        tamanho5 = len(combine5)
 
-            combine8 = set(GOone) & set(Fe3_transport)
-            tamanho8 = len(combine8)
+        combine6 = set(GOone) & set(glycine_betaine_transport)
+        tamanho6 = len(combine6)
 
-            combine9 = set(GOone) & set(uncharacterized_transport)
-            tamanho9 = len(combine9)
+        combine7 = set(GOone) & set(bicarbonate_transport)
+        tamanho7 = len(combine7)
 
-            combine10 = set(GOone) & set(transport)
-            tamanho10 = len(combine10)
+        combine8 = set(GOone) & set(Fe3_transport)
+        tamanho8 = len(combine8)
 
-            
-            if namefirst == name[0]:
-            #print("-----tem", combine, "\t", tamanho, "\n")
-                tab1 = tamanho1 + tab1
-                tab2 = tamanho2 + tab2
-                tab3 = tamanho3 + tab3
-                tab4 = tamanho4 + tab4
-                tab5 = tamanho5 + tab5
-                tab6 = tamanho6 + tab6
-                tab7 = tamanho7 + tab7
-                tab8 = tamanho8 + tab8
-                tab9 = tamanho9 + tab9
-                tab10 = tamanho10 + tab10
-                
-            
-            else:
-                print(namefirst,"\t",tab1,"\t",tab2,"\t",tab3,"\t",tab4,"\t",tab5,"\t",tab6,"\t",tab7,"\t",tab8,"\t",tab9,"\t",tab10,"\n")
-                #saida = (" %s \t %s \t %s \t %s \t %s \t %s \t %s \t %s \t %s \t %s \t %s \t %s \t %s \n") %(namefirst, tab1, tab2,  tab3, tab4, tab5, tab6, tab7, tab8, tab9, tab10, tab11, tab12)
-                #OUT.write = saida
-                namefirst = name[0]
-                tab1 = tamanho1
-                tab2 = tamanho2
-                tab3 = tamanho3
-                tab4 = tamanho4
-                tab5 = tamanho5
-                tab6 = tamanho6
-                tab7 = tamanho7
-                tab8 = tamanho8
-                tab9 = tamanho9
-                tab10 = tamanho10
+        combine9 = set(GOone) & set(uncharacterized_transport)
+        tamanho9 = len(combine9)
+
+        combine10 = set(GOone) & set(transport)
+        tamanho10 = len(combine10)
+
         
+        if namefirst == name[0]:
+        #print("-----tem", combine, "\t", tamanho, "\n")
+            tab1 = tamanho1 + tab1
+            tab2 = tamanho2 + tab2
+            tab3 = tamanho3 + tab3
+            tab4 = tamanho4 + tab4
+            tab5 = tamanho5 + tab5
+            tab6 = tamanho6 + tab6
+            tab7 = tamanho7 + tab7
+            tab8 = tamanho8 + tab8
+            tab9 = tamanho9 + tab9
+            tab10 = tamanho10 + tab10
+            
+        
+        else:
+            print(namefirst,"\t",tab1,"\t",tab2,"\t",tab3,"\t",tab4,"\t",tab5,"\t",tab6,"\t",tab7,"\t",tab8,"\t",tab9,"\t",tab10,"\n")
+            #saida = (" %s \t %s \t %s \t %s \t %s \t %s \t %s \t %s \t %s \t %s \t %s \t %s \t %s \n") %(namefirst, tab1, tab2,  tab3, tab4, tab5, tab6, tab7, tab8, tab9, tab10, tab11, tab12)
+            #OUT.write = saida
+            namefirst = name[0]
+            tab1 = tamanho1
+            tab2 = tamanho2
+            tab3 = tamanho3
+            tab4 = tamanho4
+            tab5 = tamanho5
+            tab6 = tamanho6
+            tab7 = tamanho7
+            tab8 = tamanho8
+            tab9 = tamanho9
+            tab10 = tamanho10
+    
 
 print(namefirst,"\t",tab1,"\t",tab2,"\t",tab3,"\t",tab4,"\t",tab5,"\t",tab6,"\t",tab7,"\t",tab8,"\t",tab9,"\t",tab10, "\n")
      
