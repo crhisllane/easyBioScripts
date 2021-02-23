@@ -27,5 +27,6 @@ for eggnog_line in eggnog_lines:
         print (name, "\n")
          
         comando = "grep %s *.faa | sed 's/_[0-9]* .*//' | sort | uniq"%(name)
-        res = subprocess.check_output(comando, shell=True)
-        print (res, "\n")
+        resp = subprocess.check_output(comando, shell=True)
+        resp = re.sub("fna.out.faa.*", "" ,resp)
+        print (resp, "\n")
