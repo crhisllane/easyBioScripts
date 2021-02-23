@@ -30,4 +30,5 @@ for eggnog_line in eggnog_lines:
         resp = subprocess.check_output(comando, shell=True)
         resp = str(resp)
         resp = re.sub(".fna.out.faa..*", "" ,resp)
+        resp = re.sub("^b\'", "" ,resp)
         print (resp, "\n")
