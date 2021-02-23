@@ -46,7 +46,7 @@ tab8 = 0
 tab9 = 0
 tab10 = 0
 
-print("Genome\tsugar_transport_system\tglycerol3phosphate_transport\ttricarboxylate_transporter\taminoacid_transport\tspermidine_putrescine_transport\tproline_glycine_betaine_transport\tnitrate_sulfonate_bicarbonate_transport\tFe3+_transport\tuncharacterized_transport\tABC-type_transport\n")
+print("Genome\tsugar_transport_system\tglycerol3phosphate_transport\ttricarboxylate_transporter\taminoacid_transport\tspermidine_putrescine_transport\tproline_glycine_betaine_transport\tnitrate_sulfonate_bicarbonate_transport\tFe3+_transport\tuncharacterized_transport\tABC-type_transport")
 
 Query = 0
 KO = []
