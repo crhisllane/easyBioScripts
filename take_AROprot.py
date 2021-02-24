@@ -42,6 +42,7 @@ def take_sequence(sequenceFasta):
     
     if name == name_seq:
         print ("---", name, "\t", name_seq)
+        outfasta = open (namefileout, 'w+')
         new_sequence = name_seq + '\n' + seqs + '\n'
         outfasta.write(new_sequence)
 
@@ -64,7 +65,7 @@ for eggnog_line in eggnog_lines:
             resp = re.sub("^b\'", "" ,resp)
             print (resp)
             namefileout = resp + "_EPSPS.fasta"
-            outfasta = open (namefileout, 'w+')
+            
 
             sequences = SeqIO.parse(open(resp),'fasta')
             with concurrent.futures.ProcessPoolExecutor(max_workers=1) as executor:
