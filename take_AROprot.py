@@ -45,7 +45,7 @@ def take_sequence(sequenceFasta):
         respname = re.sub(".fna.out.faa", "" ,resp)
         namefileout = respname + "_" + name_seq + "_EPSPS.fasta"
         outfasta = open (namefileout, 'w+')
-        new_sequence = '>' + respname + '_' + name_seq + '\n' + seqs + '\n'
+        new_sequence = '>' + respname + '__' + name_seq + '\n' + seqs + '\n'
         outfasta.write(new_sequence)
 
 for eggnog_line in eggnog_lines:
