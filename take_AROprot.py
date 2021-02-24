@@ -42,12 +42,16 @@ def take_sequence(sequenceFasta):
     
     if name == name_seq:
         print ("---", name, "\t", name_seq)
+        new_sequence = name_seq + '\n' + seqs + '\n'
+        outfasta.write(new_sequence)
 
 for eggnog_line in eggnog_lines:
     if not (eggnog_line.startswith("#")):
         rps_elements = eggnog_line.split("\t")
         name =  rps_elements[0]
-        #name = name.split("_")
+        namefile = name.split("_")
+        namefileout = namefile + "_EPSPS.fasta"
+        outfasta = open (namefileout, 'w+')
         kos_annot = re.sub("ko:", "" ,rps_elements[14])
         kos_annot = kos_annot.split(",")
 
