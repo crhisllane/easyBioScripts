@@ -49,9 +49,6 @@ for eggnog_line in eggnog_lines:
     if not (eggnog_line.startswith("#")):
         rps_elements = eggnog_line.split("\t")
         name =  rps_elements[0]
-        namefile = name.split("_")
-        namefileout = namefile + "_EPSPS.fasta"
-        outfasta = open (namefileout, 'w+')
         kos_annot = re.sub("ko:", "" ,rps_elements[14])
         kos_annot = kos_annot.split(",")
 
@@ -66,6 +63,8 @@ for eggnog_line in eggnog_lines:
             resp = re.sub(":>.*", "" ,resp)
             resp = re.sub("^b\'", "" ,resp)
             print (resp)
+            namefileout = resp + "_EPSPS.fasta"
+            outfasta = open (namefileout, 'w+')
 
             sequences = SeqIO.parse(open(resp),'fasta')
             with concurrent.futures.ProcessPoolExecutor(max_workers=1) as executor:
