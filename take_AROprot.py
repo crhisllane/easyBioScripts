@@ -27,8 +27,8 @@ Aro =["K00800", "K24018", "K13830"]
 
 #OUT = open ('countKOeggnog.log', 'w+')
 #OUT.write("Genome\tPtransport\tOrganicPmine\tInorganicPsolub\tNitroToAmonia\tAmoniaToHydroxy\tHydroxyToNitrite\tNitriteToNitrate\tNitrateToNitrite\tNitriteToNitricOxide\tNitricOxideToNitrousOxide\tNitrousOxideToNitrogen\tNitriteToAmonia\n")
-print("Genome\tPtransport\tOrganicPmine\tInorganicPsolub\tNitroToAmonia\tAmoniaToHydroxy\tHydroxyToNitrite\tNitriteToNitrate\tNitrateToNitrite\tNitriteToNitricOxide\tNitricOxideToNitrousOxide\tNitrousOxideToNitrogen\tNitriteToAmonia\n")
-print("Genome\t", Ptransport, "\t", OrganicPmine, "\t", InorganicPsolub, "\t", NitroToAmonia, "\t", AmoniaToHydroxy, "\t", HydroxyToNitrite, "\t", NitriteToNitrate, "\t", NitrateToNitrite, "\t", NitriteToNitricOxide, "\t", NitricOxideToNitrousOxide, "\t", NitrousOxideToNitrogen, "\t", NitriteToAmonia)
+#print("Genome\tPtransport\tOrganicPmine\tInorganicPsolub\tNitroToAmonia\tAmoniaToHydroxy\tHydroxyToNitrite\tNitriteToNitrate\tNitrateToNitrite\tNitriteToNitricOxide\tNitricOxideToNitrousOxide\tNitrousOxideToNitrogen\tNitriteToAmonia\n")
+#print("Genome\t", Ptransport, "\t", OrganicPmine, "\t", InorganicPsolub, "\t", NitroToAmonia, "\t", AmoniaToHydroxy, "\t", HydroxyToNitrite, "\t", NitriteToNitrate, "\t", NitrateToNitrite, "\t", NitriteToNitricOxide, "\t", NitricOxideToNitrousOxide, "\t", NitrousOxideToNitrogen, "\t", NitriteToAmonia)
 namefirst = argumentos.firstid
 
 
