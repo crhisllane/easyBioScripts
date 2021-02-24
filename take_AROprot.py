@@ -44,8 +44,6 @@ for eggnog_line in eggnog_lines:
         name = name.split("_")
         kos_annot = re.sub("ko:", "" ,rps_elements[14])
         kos_annot = kos_annot.split(",")
-        kos_annot = re.sub("ko:", "" ,rps_elements[14])
-        kos_annot = kos_annot.split(",")
 
         combine1 = set(kos_annot) & set(Aro)
         tamanho1 = len(combine1)
