@@ -34,7 +34,7 @@ namefirst = argumentos.firstid
 
 #ARO
 Aro_all = len(Aro)
-Aro_count = [0] * Aro
+Aro_count = [0] * Aro_all
 
 
 
