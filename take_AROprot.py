@@ -42,8 +42,9 @@ def take_sequence(sequenceFasta):
     
     if name == name_seq:
         print ("---", name, "\t", name_seq)
+        namefileout = resp + "_" + name_seq + "_EPSPS.fasta"
         outfasta = open (namefileout, 'w+')
-        new_sequence = name_seq + '\n' + seqs + '\n'
+        new_sequence = name_seq + ' ' + resp + '\n' + seqs + '\n'
         outfasta.write(new_sequence)
 
 for eggnog_line in eggnog_lines:
@@ -64,7 +65,6 @@ for eggnog_line in eggnog_lines:
             resp = re.sub(":>.*", "" ,resp)
             resp = re.sub("^b\'", "" ,resp)
             print (resp)
-            namefileout = resp + "_EPSPS.fasta"
             
 
             sequences = SeqIO.parse(open(resp),'fasta')
