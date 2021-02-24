@@ -39,7 +39,7 @@ Aro_count = [0] * Aro_all
 def take_sequence(sequenceFasta, nameID):
     ini = ">"    
     name_seq, seqs = sequenceFasta.id, str(sequenceFasta.seq)
-    print ("---" name_seq)
+    print ("---", name_seq)
 
 for eggnog_line in eggnog_lines:
     if not (eggnog_line.startswith("#")):
