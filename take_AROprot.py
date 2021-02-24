@@ -40,7 +40,8 @@ def take_sequence(sequenceFasta):
     ini = ">"    
     name_seq, seqs = sequenceFasta.id, str(sequenceFasta.seq)
     
-    print ("---", name, "\t", name_seq)
+    if name == name_seq:
+        print ("---", name, "\t", name_seq)
 
 for eggnog_line in eggnog_lines:
     if not (eggnog_line.startswith("#")):
@@ -58,7 +59,7 @@ for eggnog_line in eggnog_lines:
             comando = "grep %s *.faa "%(name)
             resp = subprocess.check_output(comando, shell=True)
             resp = str(resp)
-            resp = re.sub("\:\>.*", "" ,resp)
+            resp = re.sub(":>.*", "" ,resp)
             resp = re.sub("^b\'", "" ,resp)
             print (resp)
 
