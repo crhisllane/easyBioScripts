@@ -52,9 +52,9 @@ for eggnog_line in eggnog_lines:
             print(name, "\t", kos_annot, "\n")
             comando = "grep %s *.faa "%(name)
             resp = subprocess.check_output(comando, shell=True)
-            resp = re.sub("\:\>.*", "" ,resp[0])
-            resp = re.sub("^b\'", "" ,resp)
             resp = str(resp)
+            resp = re.sub("\:\>.*", "" ,resp)
+            resp = re.sub("^b\'", "" ,resp)
             print (resp)
 
 #cdhit_sequences = SeqIO.parse(open("FILECLUSTER.temp"),'fasta')
