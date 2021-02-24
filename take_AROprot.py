@@ -50,7 +50,7 @@ for eggnog_line in eggnog_lines:
              
         if tamanho1 >= 1:
             print(name, "\t", kos_annot, "\n")
-            comando = "grep %s *.faa | sed 's/_[0-9]* .*//' | sort | uniq"%(name)
+            comando = "grep %s *.faa "%(name)
             resp = subprocess.check_output(comando, shell=True)
             resp = str(resp)
             print (resp)
