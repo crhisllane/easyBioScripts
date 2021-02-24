@@ -5,8 +5,7 @@ from optparse import OptionParser
 from Bio import SeqIO
 import concurrent.futures
 import glob 
-from numpy import empty
-from array import array
+import subprocess
 
 argv = OptionParser()
 
