@@ -36,6 +36,10 @@ Aro_all = len(Aro)
 Aro_count = [0] * Aro_all
 
 
+def take_sequence(sequenceFasta, nameID):
+    ini = ">"    
+    name_seq, seqs = sequenceFasta.id, str(sequenceFasta.seq)
+    print ("---" sequenceFasta.id)
 
 for eggnog_line in eggnog_lines:
     if not (eggnog_line.startswith("#")):
@@ -57,6 +61,6 @@ for eggnog_line in eggnog_lines:
             resp = re.sub("^b\'", "" ,resp)
             print (resp)
 
-#cdhit_sequences = SeqIO.parse(open("FILECLUSTER.temp"),'fasta')
-#with concurrent.futures.ProcessPoolExecutor(max_workers=300) as executor:
-#    executor.map(process_cdhitcluster, cdhit_sequences)
+            sequences = SeqIO.parse(open(resp),'fasta')
+            with concurrent.futures.ProcessPoolExecutor(max_workers=1) as executor:
+                    executor.map(take_sequence, sequences, name)
