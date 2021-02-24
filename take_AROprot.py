@@ -50,10 +50,10 @@ for eggnog_line in eggnog_lines:
              
         if tamanho1 >= 1:
             print(name, "\t", kos_annot, "\n")
-            #comando = "grep %s *.faa | sed 's/_[0-9]* .*//' | sort | uniq"%(name)
-            #resp = subprocess.check_output(comando, shell=True)
-            #resp = str(resp)
-            #print (resp)
+            comando = "grep %s *.faa | sed 's/_[0-9]* .*//' | sort | uniq"%(name)
+            resp = subprocess.check_output(comando, shell=True)
+            resp = str(resp)
+            print (resp)
 
 #cdhit_sequences = SeqIO.parse(open("FILECLUSTER.temp"),'fasta')
 #with concurrent.futures.ProcessPoolExecutor(max_workers=300) as executor:
