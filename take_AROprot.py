@@ -41,7 +41,7 @@ for eggnog_line in eggnog_lines:
     if not (eggnog_line.startswith("#")):
         rps_elements = eggnog_line.split("\t")
         name =  rps_elements[0]
-        name = name.split("_")
+        #name = name.split("_")
         kos_annot = re.sub("ko:", "" ,rps_elements[14])
         kos_annot = kos_annot.split(",")
 
@@ -49,7 +49,7 @@ for eggnog_line in eggnog_lines:
         tamanho1 = len(combine1)
              
         if tamanho1 >= 1:
-            print(name[0], "\t", kos_annot, "\n")
+            print(name, "\t", kos_annot, "\n")
             #comando = "grep %s *.faa | sed 's/_[0-9]* .*//' | sort | uniq"%(name)
             #resp = subprocess.check_output(comando, shell=True)
             #resp = str(resp)
