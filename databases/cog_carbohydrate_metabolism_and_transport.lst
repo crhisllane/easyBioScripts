@@ -1,0 +1,232 @@
+COG0296	G	1,4-alpha-glucan branching enzyme	GlgB		25871919	4LPC
+COG1105	G	1-phosphofructokinase or 6-phosphofructokinase II	FruK			2ABQ
+COG3635	G	2,3-bisphosphoglycerate-independent phosphoglycerate mutase, archeal type	ApgM	Glycolysis		2ZKT
+COG0800	G	2-keto-3-deoxy-6-phosphogluconate aldolase	Eda	Entner-Doudoroff pathway		2V81
+COG3734	G	2-keto-3-deoxy-galactonokinase	DgoK			3R1X
+COG3836	G	2-keto-3-deoxy-L-rhamnonate aldolase RhmA	HpcH			1DXE
+COG2079	G	2-methylcitrate dehydratase PrpD	PrpD			1SZQ
+COG2513	G	2-Methylisocitrate lyase and related enzymes, PEP mutase family	PrpB			1XG3
+COG0269	G	3-keto-L-gulonate-6-phosphate decarboxylase	UlaD			3F4W
+COG0126	G	3-phosphoglycerate kinase	Pgk	Glycolysis		13PK
+COG1640	G	4-alpha-glucanotransferase	MalQ			1CWY
+COG2159	G	5-carboxyvanillate decarboxylase LigW (lignin degradation), amidohydro domain	LigW		26714575	2DVT
+COG3718	G	5-deoxy-D-glucuronate isomerase	IolB			2QJV
+COG3717	G	5-keto 4-deoxyuronate isomerase	KduI			1X8M
+COG0205	G	6-phosphofructokinase	PfkA	Glycolysis		1KZH
+COG1023	G	6-phosphogluconate dehydrogenase (decarboxylating)	YqeC			4E21
+COG0362	G	6-phosphogluconate dehydrogenase	Gnd	Pentose phosphate pathway	25329577	2ZYA
+COG2706	G	6-phosphogluconolactonase, cycloisomerase 2 family	Pgl			1JOF
+COG0363	G	6-phosphogluconolactonase/Glucosamine-6-phosphate isomerase/deaminase	NagB	Pentose phosphate pathway	24163345	2RI0
+COG4211	G	ABC-type glucose/galactose transport system, permease component	MglC			
+COG1653	G	ABC-type glycerol-3-phosphate transport system, periplasmic component	UgpB			2Z8D
+COG0395	G	ABC-type glycerol-3-phosphate transport system, permease component	UgpE			1VR4
+COG3833	G	ABC-type maltose transport system, permease component MalG	MalG			2R6G
+COG1134	G	ABC-type polysaccharide/polyol phosphate transport system, ATPase component	TagH			6JBH
+COG1682	G	ABC-type polysaccharide/teichoic acid/polyol phosphate export permease	TagG			6JBH
+COG4209	G	ABC-type polysaccharide transport system, permease component	LplB			4TQU
+COG3839	G	ABC-type sugar transport system, ATPase component MalK	MalK			2ONK
+COG1129	G	ABC-type sugar transport system, ATPase component	MglA			
+COG1879	G	ABC-type sugar transport system, periplasmic component, contains N-terminal xre family HTH domain	RbsB			1BA2
+COG1175	G	ABC-type sugar transport system, permease component	UgpA			3FH6
+COG4213	G	ABC-type xylose transport system, periplasmic component	XylF			4YWH
+COG4214	G	ABC-type xylose transport system, permease component	XylH			
+COG3509	G	Acetyl xylan esterase AxeA and related esterases, LpqC family	LpqC		9291122	2D80
+COG1449	G	Alpha-amylase/alpha-mannosidase, GH57 family				1K1W
+COG1486	G	Alpha-galactosidase/6-phospho-beta-glucosidase, family 4 of glycosyl hydrolase	CelF			1OBB
+COG3345	G	Alpha-galactosidase	GalA			2XN0
+COG1501	G	Alpha-glucosidase/xylosidase, GH31 family	YicI		15294295	1WE5
+COG3661	G	Alpha-glucuronidase	AguA2			1GQI
+COG3534	G	Alpha-L-arabinofuranosidase	AbfA			1PZ2
+COG3669	G	Alpha-L-fucosidase	AfuC		16855233	1HL8
+COG0383	G	Alpha-mannosidase	MngB		14645248	5KBP
+COG2721	G	Altronate dehydratase	UxaA			6U7L
+COG2704	G	Anaerobic C4-dicarboxylate transporter	DcuA			
+COG3867	G	Arabinogalactan endo-1,4-beta-galactosidase	GanB			1FHL
+COG4809	G	Archaeal ADP-dependent glucokinase/phosphofructokinase	Pfk2	Glycolysis		1GC5
+COG1980	G	Archaeal fructose 1,6-bisphosphatase	FbpA			1UMG
+COG0483	G	Archaeal fructose-1,6-bisphosphatase or related enzyme, inositol monophosphatase family	SuhB	Gluconeogenesis		1AWB
+COG2730	G	Aryl-phospho-beta-D-glucosidase BglC, GH1 family	BglC			
+COG3037	G	Ascorbate-specific PTS system IIC component UlaA	UlaA			4RP8
+COG2971	G	BadF-type ATPase, related to human N-acetylglucosamine kinase	BadF		17954692;12761179;12761179	
+COG3250	G	Beta-galactosidase/beta-glucuronidase	LacZ		19291314	5N6U
+COG2731	G	Beta-galactosidase, beta subunit	EbgC			1JOP
+COG1874	G	Beta-galactosidase GanA	GanA			1KWG
+COG2273	G	Beta-glucanase, GH16 family	BglS			1AJK
+COG2723	G	Beta-glucosidase/6-phospho-beta-glucosidase/beta-galactosidase	BglB			4HZ6
+COG3533	G	Beta-L-arabinofuranosidase, GH127 family	HybA1		24385433	3WKW
+COG4124	G	Beta-mannanase	ManB2			1GVY
+COG4193	G	Beta- N-acetylglucosaminidase	LytD			6FXO
+COG0637	G	Beta-phosphoglucomutase, HAD superfamily	YcjU		29684280	3E58
+COG3940	G	Beta-xylosidase, GH43 family				
+COG3664	G	Beta-xylosidase	XynB			1PX8
+COG3507	G	Beta-xylosidase	XynB2			1Y7B
+COG0406	G	Broad specificity phosphatase PhoE	PhoE			1EBB
+COG3459	G	Cellobiose phosphorylase			17307853	1V7V
+COG5297	G	Cellulase/cellobiase CelA1	CelA1			
+COG3469	G	Chitinase	Chi1			4AXN
+COG3325	G	Chitinase, GH18 family	ChiA			1E15
+COG3179	G	Chitinase, GH19 family	GH19		17010167	1WVU
+COG3979	G	Chitodextrinase				1WVU
+COG3394	G	Chitooligosaccharide deacetylase ChbG, YdjC/CelG family	ChbG		18177738;22797760	2I5I
+COG2301	G	Citrate lyase beta subunit	CitE			4ROQ
+COG1064	G	D-arabinose 1-dehydrogenase, Zn-dependent alcohol dehydrogenase family	AdhP			5O8Q
+COG0676	G	D-hexose-6-phosphate mutarotase	YeaD			1JOV
+COG0471	G	Di- and tricarboxylate antiporter	CitT			4F35
+COG2376	G	Dihydroxyacetone kinase	DAK1	Isoprenoid biosynthesis		1UN8
+COG3822	G	D-lyxose ketol-isomerase	YdaE			3MPB
+COG1312	G	D-mannonate dehydratase	UxuA			1TZ9
+COG1869	G	D-ribose pyranose/furanose isomerase RbsD	RbsD			1OGC
+COG3395	G	D-threonate/D-erythronate kinase OtnK and related C4-acid sugar kinases, YgbK/DUF1537 family	OtnK		27402745	1YZY
+COG3405	G	Endo-1,4-beta-D-glucanase Y	BcsZ			1CEM
+COG3934	G	Endo-1,4-beta-mannosidase				3PZ9
+COG3693	G	Endo-1,4-beta-xylanase, GH35 family	XynA			1B30
+COG2342	G	Endo alpha-1,4 polygalactosaminidase, GH114 family (was erroneously annotated as Cys-tRNA synthetase)				2AAM
+COG5368	G	Endo-beta-1,2-glucanase, glucoamylase superfamily			28270506	3EU8
+COG4724	G	Endo-beta-N-acetylglucosaminidase D				
+COG5498	G	Endoglucanase Acf2	Acf2			
+COG0148	G	Enolase	Eno	Glycolysis		1E9I
+COG5309	G	Exo-beta-1,3-glucanase,  GH17 family	Scw11			
+COG3001	G	Fructosamine-3-kinase	FN3K			3F7W
+COG3855	G	Fructose-1,6-bisphosphatase	Fbp2	Gluconeogenesis		
+COG0158	G	Fructose-1,6-bisphosphatase	Fbp	Gluconeogenesis		1BK4
+COG1494	G	Fructose-1,6-bisphosphatase/sedoheptulose 1,7-bisphosphatase or related protein	GlpX			1NI9
+COG3588	G	Fructose-bisphosphate aldolase class 1	Fba1	Glycolysis		
+COG1830	G	Fructose-bisphosphate aldolase class Ia, DhnA family	FbaB	Glycolysis		1OJX
+COG0191	G	Fructose/tagatose bisphosphate aldolase	Fba	Glycolysis		1B57
+COG3594	G	Fucose 4-O-acetylase or related acetyltransferase	NolL		21697094	
+COG0738	G	Fucose permease	FucP			3O7P
+COG0153	G	Galactokinase	GalK			1PIE
+COG1085	G	Galactose-1-phosphate uridylyltransferase	GalT			1GUP
+COG4468	G	Galactose-1-phosphate uridylyltransferase	GalT2			
+COG2017	G	Galactose mutarotase or related enzyme	GalM			1LUR
+COG5263	G	Glucan-binding domain (YG repeat)				1H09
+COG0058	G	Glucan phosphorylase	GlgP			1A8I
+COG3387	G	Glucoamylase (glucan-1,4-alpha-glucosidase), GH15 family	SGA1			1AGM
+COG0837	G	Glucokinase	Glk	Glycolysis		1Q18
+COG3265	G	Gluconate kinase	GntK	Non-phosphorylated Entner-Doudoroff pathway		1KO4
+COG0448	G	Glucose-1-phosphate adenylyltransferase (ADP-glucose pyrophosphorylase)	GlgC		27545622	5MNI
+COG0364	G	Glucose-6-phosphate 1-dehydrogenase	Zwf	Pentose phosphate pathway	18950999	5B7W
+COG3429	G	Glucose-6-phosphate dehydrogenase assembly protein OpcA, contains a peptidoglycan-binding domain	OpcA			
+COG0166	G	Glucose-6-phosphate isomerase	Pgi	Glycolysis		1B0Z
+COG2133	G	Glucose/arabinose dehydrogenase, beta-propeller fold	YliI			1C9U
+COG4993	G	Glucose dehydrogenase, PQQ-dependent	Gcd			1FLG
+COG4975	G	Glucose uptake protein GlcU	GlcU			
+COG1904	G	Glucuronate isomerase	UxaC			1J5S
+COG0057	G	Glyceraldehyde-3-phosphate dehydrogenase/erythrose-4-phosphate dehydrogenase	GapA	Glycolysis		3ZDF
+COG2379	G	Glycerate-2-kinase	GckA	Non-phosphorylated Entner-Doudoroff pathway	18156253	1X3L
+COG1929	G	Glycerate kinase	GlxK	Non-phosphorylated Entner-Doudoroff pathway		1TO6
+COG0580	G	Glycerol uptake facilitator or related aquaporin (Major Intrinsic protein Family)	GlpF			1FQY
+COG3408	G	Glycogen debranching enzyme (alpha-1,6-glucosidase)	GDB1			5D06
+COG0297	G	Glycogen synthase	GlgA			1RZU
+COG0366	G	Glycosidase/amylase (phosphorylase)	AmyA		29684280	2P67
+COG1216	G	Glycosyltransferase, GT2 family	WcaE			2Z86
+COG5026	G	Hexokinase		Glycolysis		1BDG
+COG2610	G	H+/gluconate symporter GntT or related permease, GntP/DsdX family	GntT			
+COG3622	G	Hydroxypyruvate/dehydroerythronate isomerase, Hyi/OtnI family	Hyi		27402745	1K77
+COG1554	G	Kojibiose phosphorylase YcjT	ATH1		29684280	1H54
+COG0579	G	L-2-hydroxyglutarate oxidase LhgO	LhgO			3DME
+COG2160	G	L-arabinose isomerase	AraA			2AJT
+COG2220	G	L-ascorbate lactonase UlaG, metallo-beta-lactamase superfamily	UlaG			2WYM
+COG2407	G	L-fucose isomerase or related protein	FucI		22865846	1FUI
+COG4154	G	L-fucose mutarotase/ribose pyranase, RbsD/FucU family	FucU			2WCV
+COG4806	G	L-rhamnose isomerase	RhaA			1D8W
+COG3623	G	L-ribulose-5-phosphate 3-epimerase UlaE	SgaU			3CQH
+COG5521	G	Maltodextrin utilization protein YvdJ (function unknown)	YvdJ		16707683	
+COG3280	G	Maltooligosyltrehalose synthase	TreY			
+COG4580	G	Maltoporin (phage lambda and maltose receptor)	LamB			1MPR
+COG2182	G	Maltose-binding periplasmic protein MalE	MalE			1T0K
+COG0246	G	Mannitol-1-phosphate/altronate dehydrogenases	MtlD			1LJ8
+COG4668	G	Mannitol/fructose-specific phosphotransferase system, IIA domain	MtlA2			1A3A
+COG1482	G	Mannose-6-phosphate isomerase, class I	ManA			1PMI
+COG0662	G	Mannose-6-phosphate isomerase, cupin superfamily	ManC			1IPJ
+COG2942	G	Mannose or cellobiose epimerase, N-acyl-D-glucosamine 2-epimerase family	YihS			2ZBL
+COG3769	G	Mannosyl-3-phosphoglycerate phosphatase YedP/MpgP, HAD superfamily	YedP		25848029	1XVI
+COG5542	G	Mannosyltransferase related to Gpi18				
+COG3936	G	Membrane-bound acyltransferase YfiQ, involved in biofilm formation	YfiQ			
+COG1803	G	Methylglyoxal synthase	MgsA		9665712	1S8A
+COG3892	G	Myo-inositol catabolism protein LolC	IolC			
+COG3525	G	N-acetyl-beta-hexosaminidase	Chb		18063573	3RPM
+COG1820	G	N-acetylglucosamine-6-phosphate deacetylase	NagA			1O12
+COG2120	G	N-acetylglucosaminyl deacetylase, LmbE family	LmbE			1Q74
+COG2211	G	Na+/melibiose symporter or related transporter	MelB			4M64
+COG1626	G	Neutral trehalase	TreA			2JF4
+COG2140	G	Oxalate decarboxylase/archaeal phosphoglucose isomerase, cupin superfamily	OxdD	Glycolysis		2VQA
+COG3866	G	Pectate lyase	PelB			1AIR
+COG0036	G	Pentose-5-phosphate-3-epimerase	Rpe	Pentose phosphate pathway		1H1Y
+COG1472	G	Periplasmic beta-glucosidase and related glycosidases	BglX			2X40
+COG1892	G	Phosphoenolpyruvate carboxylase	PpcA			3ODM
+COG1080	G	Phosphoenolpyruvate-protein kinase (PTS system EI component in bacteria)	PtsA			1EZA
+COG0574	G	Phosphoenolpyruvate synthase/pyruvate phosphate dikinase	PpsA	Gluconeogenesis		5HV6
+COG0033	G	Phosphoglucomutase/phosphomannomutase	Pgm		30938049	1C47
+COG0588	G	Phosphoglycerate mutase (BPG-dependent)	GpmA	Glycolysis		1E58
+COG0696	G	Phosphoglycerate mutase (BPG-independent), AlkP superfamily	GpmI	Glycolysis		1EJJ
+COG0279	G	Phosphoheptose isomerase	GmhA			1G76
+COG3957	G	Phosphoketolase	XFP			3AHC
+COG1109	G	Phosphomannomutase	ManB			6MNV
+COG1015	G	Phosphopentomutase	DeoB			3UN2
+COG3954	G	Phosphoribulokinase	PrkB			1A7J
+COG1447	G	Phosphotransferase system cellobiose-specific component IIA	CelC			1E2A
+COG1440	G	Phosphotransferase system cellobiose-specific component IIB	CelA			1E2B
+COG1455	G	Phosphotransferase system cellobiose-specific component IIC	CelB			3QNQ
+COG1445	G	Phosphotransferase system fructose-specific component IIB	FrwB			5DLE
+COG1299	G	Phosphotransferase system, fructose-specific IIC component	FrwC			
+COG3414	G	Phosphotransferase system, galactitol-specific IIB component	SgaB			5GQS
+COG3775	G	Phosphotransferase system, galactitol-specific IIC component	SgcC			
+COG2190	G	Phosphotransferase system IIA component	NagE			1AX3
+COG1264	G	Phosphotransferase system IIB components	PtsG2			1IBA
+COG1263	G	Phosphotransferase system IIC components, glucose/maltose/N-acetylglucosamine-specific	PtsG1			
+COG2213	G	Phosphotransferase system, mannitol-specific IIBC component	MtlA			1VRV
+COG3444	G	Phosphotransferase system, mannose/fructose/N-acetylgalactosamine-specific component IIB	AgaB			1BLE
+COG3715	G	Phosphotransferase system, mannose/fructose/N-acetylgalactosamine-specific IIC component	ManY			6K1H
+COG3716	G	Phosphotransferase system, mannose/fructose/N-acetylgalactosamine-specific IID component	ManZ			6K1H
+COG2893	G	Phosphotransferase system, mannose/fructose-specific component IIA	ManX			1PDO
+COG3731	G	Phosphotransferase system sorbitol-specific IIA component	SrlB			2F9H
+COG3732	G	Phosphotransferase system sorbitol-specific IIB component	SrlE			
+COG3730	G	Phosphotransferase system sorbitol-specific IIC component	SrlA			
+COG5434	G	Polygalacturonase	Pgu1			1BHE
+COG4833	G	Predicted alpha-1,6-mannanase, GH76 family				3K7X
+COG2814	G	Predicted arabinose efflux permease AraJ, MFS family	AraJ			4LDS
+COG1543	G	Predicted glycosyl hydrolase, contains GH57 and DUF1957 domains				1UFA
+COG3868	G	Predicted glycosyl hydrolase, GH114 family				5TSY
+COG2152	G	Predicted glycosyl hydrolase, GH43/DUF377 family				1VKD
+COG4130	G	Predicted sugar epimerase, xylose isomerase-like family				
+COG3281	G	Predicted trehalose synthase	Ble			
+COG1523	G	Pullulanase/glycogen debranching enzyme	PulA			2WSK
+COG3537	G	Putative alpha-1,2-mannosidase				2WVX
+COG3010	G	Putative N-acetylmannosamine-6-phosphate epimerase	NanE			1Y0E
+COG0469	G	Pyruvate kinase	PykF	Glycolysis		6QXL
+COG4225	G	Rhamnogalacturonyl hydrolase YesR	YesR			1NC5
+COG3347	G	Rhamnose utilisation protein RhaD, predicted bifunctional aldolase and dehydrogenase	RhaD			3M4R
+COG3709	G	Ribose 1,5-bisphosphate kinase PhnN	PhnN			
+COG0120	G	Ribose 5-phosphate isomerase	RpiA	Pentose phosphate pathway		1KS2
+COG0698	G	Ribose 5-phosphate isomerase RpiB	RpiB	Pentose phosphate pathway		1NN4
+COG1172	G	Ribose/xylose/arabinose/galactoside ABC-type transport system, permease component	AraH			
+COG1850	G	Ribulose 1,5-bisphosphate carboxylase, large subunit, or a RuBisCO-like protein	RbcL			2YBV
+COG4451	G	Ribulose bisphosphate carboxylase small subunit	RbcS			2YBV
+COG1069	G	Ribulose kinase	AraB			3QDK
+COG1621	G	Sucrose-6-phosphate hydrolase SacC, GH32 family	SacC			1ST8
+COG3386	G	Sugar lactone lactonase YvrE	YvrE	Non-phosphorylated Entner-Doudoroff pathway		1E1A
+COG0524	G	Sugar or nucleoside kinase, ribokinase family	RbsK	Glycolysis		2QCV
+COG1070	G	Sugar (pentulose or hexulose) kinase	XylB	Non-phosphorylated Entner-Doudoroff pathway		4C23
+COG1082	G	Sugar phosphate isomerase/epimerase	YcjR		30742415	3KTC
+COG2271	G	Sugar phosphate permease	UhpC			1PW4
+COG4632	G	Sugar-P-sugar glycosidase (uncovering enzyme, UCE), NAGPA superfamily	NAGPA		23572527	3OHG
+COG4095	G	Sugar transporter, SemiSWEET family, contains PQ motif	SWEET		24027245	
+COG4573	G	Tagatose-1,6-bisphosphate aldolase non-catalytic subunit AgaZ/GatZ	GatZ			2FIQ
+COG3962	G	TPP-dependent trihydroxycyclohexane-1,2-dione (THcHDO) dehydratase, myo-inositol metabolism	IolD			
+COG0176	G	Transaldolase/fructose-6-phosphate aldolase	TalA	Pentose phosphate pathway		1F05
+COG3958	G	Transketolase, C-terminal subunit	TktA2			
+COG3959	G	Transketolase, N-terminal subunit	TktA1			
+COG0021	G	Transketolase	TktA	Pentose phosphate pathway		1AY0
+COG1593	G	TRAP-type C4-dicarboxylate transport system, large permease component	DctQ			
+COG1638	G	TRAP-type C4-dicarboxylate transport system, periplasmic component	DctP			2CEX
+COG3090	G	TRAP-type C4-dicarboxylate transport system, small permease component YiaM	DctM			
+COG1877	G	Trehalose-6-phosphate phosphatase	OtsB			1U02
+COG0380	G	Trehalose-6-phosphate synthase, GT20 family	OtsA		28830929	1UQT
+COG4813	G	Trehalose utilization protein	ThuA			1T0B
+COG0149	G	Triosephosphate isomerase	TpiA	Glycolysis		1HG3
+COG1819	G	UDP:flavonoid glycosyltransferase YjiC, YdhE family	YjiC		23974133	2ACV
+COG4284	G	UDP-N-acetylglucosamine pyrophosphorylase	QRI1			1JV1
+COG5017	G	UDP-N-acetylglucosamine transferase subunit ALG13				2JZC
+COG2861	G	Uncharacterized conserved protein YibQ, putative polysaccharide deacetylase 2 family	YibQ			2NLY
+COG2115	G	Xylose isomerase	XylA			1A0C
