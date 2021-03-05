@@ -41,7 +41,7 @@ for cogs_line in cogs_all_lines:
 cogs_count = [0] * (len(cogs_lst))
 
 
-print("Genome\t", cogs_name)
+print("Genome,", "\t", cogs_name)
 
 
 for rps_lines in rps_all_lines:
