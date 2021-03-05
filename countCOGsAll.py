@@ -73,5 +73,5 @@ for rps_lines in rps_all_lines:
                 if COGone[0] == cogs_lst[i]:
                     cogs_count[i] = cogs_count[i] + 1
 
-print (namefirst, "\t", cogs_count)
+print (namefirst, ",", "\t", cogs_count)
           
