@@ -16,7 +16,9 @@ argv.add_option("-f","--first", action="store", dest="out", type="string",
 
 (argumentos, palha_que_nao_interessa) = argv.parse_args()
 
+oldfasta = argumentos.file
 namefileout = argumentos.out
+
 logout = argumentos.out
 logout = logout + '.log' 
 outfasta = open (namefileout, 'w+')
@@ -24,17 +26,12 @@ logfile = open (logout, 'w+')
 
 count = 1
 
-def take_sequence(sequenceFasta):
+for sequences in SeqIO.parse(open(oldfasta),'fasta'):
       
-    name_seq, seqs = sequenceFasta.id, str(sequenceFasta.seq)
+    name_seq, seqs = sequences.id, str(sequences.seq)
     
-    new_sequence = '>' + count + '__' + '\n' + seqs + '\n'
-    new_logline = count + '\t' + name_seq + '\n'
+    new_sequence = '>' + str(count) + '__' + '\n' + seqs + '\n'
+    new_logline = str(count) + '__' + '\t' + name_seq + '\n'
     outfasta.write(new_sequence)
     logfile.write(new_logline)
-
-            
-
-sequences = SeqIO.parse(open(argumentos.file),'fasta')
-with concurrent.futures.ProcessPoolExecutor(max_workers=1) as executor:
-    executor.map(take_sequence, sequences)
+    count = count + 1
