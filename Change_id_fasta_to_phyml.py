@@ -11,7 +11,7 @@ argv = OptionParser()
 
 argv.add_option("-I", "--Input", action = "store", dest = "file", type ="string",
                    help = "fasta to change name")
-argv.add_option("-f","--first", action="store", dest="out", type="string",
+argv.add_option("-f","--fileout", action="store", dest="out", type="string",
                     help = "name of output fasta" )
 
 (argumentos, palha_que_nao_interessa) = argv.parse_args()
