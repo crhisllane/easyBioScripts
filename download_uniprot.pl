@@ -21,8 +21,11 @@ while ($line=<FILE>){
 close FILE;
 
 foreach $lstprotein (@lstproteins){
-    open (SAIDA, ">>$lstprotein.fasta");
-	my $url1 = "https://www.uniprot.org/uniprot/?query=proteome:$lstprotein&format=fasta";
+    my @ids_name= split('\t', $lstprotein);
+    my $id=@ids_name[0];
+    my $specie=@ids_name[1];
+    open (SAIDA, ">>$specie.fasta");
+	my $url1 = "https://www.uniprot.org/uniprot/?query=proteome:$id&format=fasta";
 	my $output1 = get($url1);
 	#$output1=~s/Entry.*\n//g;
 	#$output1=~s/\n//g;	
