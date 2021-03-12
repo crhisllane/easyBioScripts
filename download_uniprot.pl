@@ -21,8 +21,7 @@ while ($line=<FILE>){
 close FILE;
 open (SAIDA, ">>$file\.GO.tab");
 foreach $lstprotein (@lstproteins){
-	my $url1 = "https://www.uniprot.org/uniprot/?query=proteome:$lstprotein&format=fasta"
-	#my $url1 = "http://www.uniprot.org/uniprot/?query=$lstprotein&columns=id,entry,genes,go-id,go(biological%20process),go(molecular%20function),go(cellular%20component)&format=tab";
+	my $url1 = "https://www.uniprot.org/uniprot/?query=proteome:$lstprotein&format=fasta";
 	my $output1 = get($url1);
 	#$output1=~s/Entry.*\n//g;
 	#$output1=~s/\n//g;	
