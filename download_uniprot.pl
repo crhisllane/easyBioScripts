@@ -19,12 +19,13 @@ while ($line=<FILE>){
 	push (@lstproteins,$line)
 }
 close FILE;
-open (SAIDA, ">>$file\.GO.tab");
+
 foreach $lstprotein (@lstproteins){
+    open (SAIDA, ">>$lstprotein.fasta");
 	my $url1 = "https://www.uniprot.org/uniprot/?query=proteome:$lstprotein&format=fasta";
 	my $output1 = get($url1);
 	#$output1=~s/Entry.*\n//g;
 	#$output1=~s/\n//g;	
 	print SAIDA ("$output1");
+    close SAIDA;
 }
-close SAIDA;
