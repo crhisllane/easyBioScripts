@@ -70,7 +70,7 @@ def process_cdhitcluster(cdhitseq):
 
         for id_seq in each_id_seq:
             only200seqs = int(only200seqs) + 1
-            print ("--------squantidade - "only200seqs)
+            print ("--------squantidade - ", only200seqs)
             if (int(only200seqs) <= 200): 
                 if ini in id_seq:           
                     #print ("\t---", id_seq, "\n")
