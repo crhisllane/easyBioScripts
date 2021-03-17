@@ -70,7 +70,8 @@ def process_cdhitcluster(cdhitseq):
 
         for id_seq in each_id_seq:
             only200seqs = int(only200seqs) + 1
-            if only200seqs <= 200: 
+            print ("--------squantidade - "only200seqs)
+            if (int(only200seqs) <= 200): 
                 if ini in id_seq:           
                     #print ("\t---", id_seq, "\n")
                     fastaname = re.sub("\.\.\..*", "" ,id_seq)
