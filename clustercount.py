@@ -59,6 +59,7 @@ def process_cdhitcluster(cdhitseq):
     name_clu = re.sub("^", ">" ,name_clu)
     print ("analise", name_clu, "\n")
     if name_clu in clusterok:
+        only200seqs=0
         print ("\tname_cluster ok", name_clu, "\n")
 
         fileout = name_clu + ".fasta"
@@ -67,34 +68,36 @@ def process_cdhitcluster(cdhitseq):
         seqs_clus = re.sub("[0-9]*aa,", "----" ,seqs_clus)
         each_id_seq = seqs_clus.split("----")
 
-        for id_seq in each_id_seq:  
-            if ini in id_seq:           
-                #print ("\t---", id_seq, "\n")
-                fastaname = re.sub("\.\.\..*", "" ,id_seq)
-                fastaname1 = re.sub("^>[A-Z][A-Z]_", "" ,fastaname)
-                fastaname1 = re.sub(".proteins.ffa", "" ,fastaname1)
-                cab_id = re.search(r"_.*", fastaname1)
-                realseqid = re.sub("^_", "" ,cab_id[0])
-                fastaFileName = re.search(r".*\.fna", fastaname1)
-                #print (fastaname, " ", realseqid, " ",  fastaFileName[0], "\n")
-                if re.match(r"^>PD", fastaname):
-                    fastaFileName = fastaFileName[0] + ".genes.fna"
+        for id_seq in each_id_seq:
+            only200seqs = int(only200seqs) + 1
+            if only200seqs <= 200: 
+                if ini in id_seq:           
+                    #print ("\t---", id_seq, "\n")
+                    fastaname = re.sub("\.\.\..*", "" ,id_seq)
+                    fastaname1 = re.sub("^>[A-Z][A-Z]_", "" ,fastaname)
+                    fastaname1 = re.sub(".proteins.ffa", "" ,fastaname1)
+                    cab_id = re.search(r"_.*", fastaname1)
+                    realseqid = re.sub("^_", "" ,cab_id[0])
+                    fastaFileName = re.search(r".*\.fna", fastaname1)
+                    #print (fastaname, " ", realseqid, " ",  fastaFileName[0], "\n")
+                    if re.match(r"^>PD", fastaname):
+                        fastaFileName = fastaFileName[0] + ".genes.fna"
 
-                elif re.match(r"^>SM", fastaname):
-                    fastaFileName = fastaFileName[0] + ".ffn"
+                    elif re.match(r"^>SM", fastaname):
+                        fastaFileName = fastaFileName[0] + ".ffn"
 
-                else:
-                    log.write(fastaname + ' no ^>PD or ^>SM')
-                
-                fasta_sequences = SeqIO.parse(open(fastaFileName),'fasta')
-                for fasta in fasta_sequences:
-                    name, sequence = fasta.id, str(fasta.seq)
-                    if re.search(r'.ffn', fastaFileName): 
-                        name = re.sub(">[a-zA-Z0-9]*_[a-zA-Z0-9]* ", ">" ,name)
-                    if realseqid == name:
-                        new_sequence = fastaname + '\n' + sequence + '\n'
-                        outfasta.write(new_sequence)
-                        #print ("\t\t inserting ",  realseqid, " ", name, " ", fastaname, "\n") 
+                    else:
+                        log.write(fastaname + ' no ^>PD or ^>SM')
+                    
+                    fasta_sequences = SeqIO.parse(open(fastaFileName),'fasta')
+                    for fasta in fasta_sequences:
+                        name, sequence = fasta.id, str(fasta.seq)
+                        if re.search(r'.ffn', fastaFileName): 
+                            name = re.sub(">[a-zA-Z0-9]*_[a-zA-Z0-9]* ", ">" ,name)
+                        if realseqid == name:
+                            new_sequence = fastaname + '\n' + sequence + '\n'
+                            outfasta.write(new_sequence)
+                            #print ("\t\t inserting ",  realseqid, " ", name, " ", fastaname, "\n") 
     else:
         print ("OUT cluster: less than size", name_clu, "\n")    
 
