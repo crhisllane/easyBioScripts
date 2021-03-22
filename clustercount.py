@@ -70,7 +70,7 @@ def process_cdhitcluster(cdhitseq):
 
         for id_seq in each_id_seq:
             only200seqs = int(only200seqs) + 1
-            print ("--------squantidade - ", only200seqs)
+            #print ("--------squantidade - ", only200seqs)
             if (int(only200seqs) <= 200): 
                 if ini in id_seq:           
                     #print ("\t---", id_seq, "\n")
@@ -80,12 +80,15 @@ def process_cdhitcluster(cdhitseq):
                     cab_id = re.search(r"_.*", fastaname1)
                     realseqid = re.sub("^_", "" ,cab_id[0])
                     fastaFileName = re.search(r".*\.fna", fastaname1)
-                    #print (fastaname, " ", realseqid, " ",  fastaFileName[0], "\n")
+                    print ("Antes-", fastaname, " ", realseqid, " ",  fastaFileName[0], "\n")
                     if re.match(r"^>PD", fastaname):
                         fastaFileName = fastaFileName[0] + ".genes.fna"
+                        print ("Depois-", fastaname, " ", realseqid, " ",  fastaFileName, "\n")
 
                     elif re.match(r"^>SM", fastaname):
                         fastaFileName = fastaFileName[0] + ".ffn"
+                        print ("Depois-", fastaname, " ", realseqid, " ",  fastaFileName, "\n")
+
 
                     else:
                         log.write(fastaname + ' no ^>PD or ^>SM')
@@ -104,7 +107,7 @@ def process_cdhitcluster(cdhitseq):
 
 
 cdhit_sequences = SeqIO.parse(open("FILECLUSTER.temp"),'fasta')
-with concurrent.futures.ProcessPoolExecutor(max_workers=70) as executor:
+with concurrent.futures.ProcessPoolExecutor(max_workers=1) as executor:
     executor.map(process_cdhitcluster, cdhit_sequences)
 
 """
