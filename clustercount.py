@@ -98,7 +98,9 @@ def process_cdhitcluster(cdhitseq):
                         name, sequence = fasta.id, str(fasta.seq)
                         if re.search(r'.ffn', fastaFileName): 
                             name = re.sub(">[a-zA-Z0-9]*_[a-zA-Z0-9]* ", ">" ,name)
+                            print ("teste do SM1-", fastaname, " ", realseqid, " ",  fastaFileName, "\n")
                         if realseqid == name:
+                            print ("teste do SM2-", fastaname, " ", realseqid, " ",  fastaFileName, "\n")
                             new_sequence = fastaname + '\n' + sequence + '\n'
                             outfasta.write(new_sequence)
                             #print ("\t\t inserting ",  realseqid, " ", name, " ", fastaname, "\n") 
