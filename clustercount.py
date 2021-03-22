@@ -110,7 +110,7 @@ def process_cdhitcluster(cdhitseq):
 
 
 cdhit_sequences = SeqIO.parse(open("FILECLUSTER.temp"),'fasta')
-with concurrent.futures.ProcessPoolExecutor(max_workers=1) as executor:
+with concurrent.futures.ProcessPoolExecutor(max_workers=70) as executor:
     executor.map(process_cdhitcluster, cdhit_sequences)
 
 """
