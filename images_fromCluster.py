@@ -4,8 +4,7 @@ import re
 from optparse import OptionParser
 from Bio import SeqIO
 import concurrent.futures
-import numpy as np
-import pandas as pd
+
 
 argv = OptionParser()
 
@@ -13,12 +12,16 @@ argv.add_option("-I", "--Input", action = "store", dest = "file", type ="string"
                    help = "cluster cdhit output file")
 argv.add_option("-s", "--size", action="store", dest="size", type="int",
                     help = "minimum cluster size")
-argv.add_option("-f","--fasta", action="store", dest="fasta", type="string",
-                    help = "cdhit output fasta file" )
+argv.add_option("-m","--metafile", action="store", dest="metaf", type="string",
+                    help = "metafile" )
 (argumentos, palha_que_nao_interessa) = argv.parse_args()
 
 clusterfile = open (argumentos.file, 'r')
 allClusterLines = clusterfile.readlines()
+
+metafilel = open (argumentos.metaf, 'r')
+allmetaLines = metafilel.readlines()
+
 count = 0
 lastcount = 0
 idclust = 0
@@ -27,6 +30,8 @@ clusterok = []
 
 cmd = "sed 's/>Cluster />Cluster_/' %s > FILECLUSTER.temp"%(argumentos.file)
 os.system(cmd)
+cmd2 = "sed -i '/^[0-9]/ s/\t/----/' FILECLUSTER.temp"
+os.system(cmd2)
 
 #taking the clusters with number of members according to the size informed.
 for clusterline in allClusterLines:
@@ -50,9 +55,20 @@ if (lastcount >= limit):
     clusterok.append(idclust)
 
 print("clusters ok")
-prodigal = open ('prodigal.clusters', 'w+')
-smallOrf = open ('smallOrf.clusters', 'w+')
 
+proffile = "prodigal.clusters" 
+smalfile = "smallOrf.clusters" 
+prodigal = open (proffile, 'w+')
+smallOrf = open (smalfile, 'w+')
+
+NPA = "npa.clusters" 
+PA = "pa.clusters" 
+RA = "ra.clusters"
+SOIL = "soil.clusters"
+NPA = open (NPA, 'w+')
+PA = open (PA, 'w+')
+RA = open (RA, 'w+')
+SOIL = open (SOIL, 'w+')
 
 #for cdhitseq in cdhit_sequences:
 def process_cdhitcluster(cdhitseq):
@@ -61,78 +77,72 @@ def process_cdhitcluster(cdhitseq):
     name_clu = re.sub("^", ">" ,name_clu)
     print ("analise", name_clu, "\n")
     if name_clu in clusterok:
-        print ("\tname_cluster ok", name_clu, "\n")
+        print ("\tname_cluster ok", name_clu, "\n seqsclu", seqs_clus, "\n\n")
+        name_clu2 = re.sub(">", "", name_clu)
+     
+        seqs_clus = re.sub("\.\.\.\*", "----" ,seqs_clus)
+        seqs_clus = re.sub("%", "----" ,seqs_clus)
 
-        #fileout = name_clu + ".fasta"
-        #fileout = re.sub(">", "" ,fileout)
-        #outfasta = open (fileout, 'w+')
-        seqs_clus = re.sub("aa,", "\t" ,seqs_clus)
-        each_id_seq = seqs_clus.split("\t")
-        ClusterName = []
-        GeneName = []
-        Tool = []
-        OriginalFile = []
-        Origem = []
-        GeneLenght = []
+        each_id_seq = seqs_clus.split("----")
+
         for id_seq in each_id_seq:
-            #print (".........", name_clu, "\t", id_seq)
-            if re.search('[a-zA-Z]', id_seq):
-                completeN = id_seq.split("_")
-                Tool.append(re.sub('>', '', completeN[0]))
+            print ("idseq-", id_seq)
+            if ini in id_seq:           
+                linecomplt = id_seq.split(",")
+                GeneLenght = re.sub("aa", "" ,linecomplt[0])
+                completeN = linecomplt[1].split("_")
+                Tool = re.sub('>', '', completeN[0])
                 OrigF = re.sub("\..*", "", completeN[1])
-                OriginalFile.append(OrigF)
-                Origem.append(completeN[2])
-                GeneName.append(id_seq)
-                ClusterName.append(name_clu)
+                Origem = completeN[2]
+                GeneName = linecomplt[1]
+                print ("---- idser com", id_seq, "\n", "aqui-", Tool, OrigF, Origem, GeneName, '\n')
 
-                #print (".........", name_clu, "\t", "namegene", nameGene)
-            elif re.search('[1-9]', id_seq):
-                GeneLenght.append(id_seq)
-                #print (".........", name_clu, "\t", "lenghGene", lenghGene)
-            
-            '''only200seqs = int(only200seqs) + 1
-            print ("--------squantidade - ", only200seqs)
-            if (int(only200seqs) <= 200): 
-                if ini in id_seq:           
-                    #print ("\t---", id_seq, "\n")
-                    fastaname = re.sub("\.\.\..*", "" ,id_seq)
-                    fastaname1 = re.sub("^>[A-Z][A-Z]_", "" ,fastaname)
-                    fastaname1 = re.sub(".proteins.ffa", "" ,fastaname1)
-                    cab_id = re.search(r"_.*", fastaname1)
-                    realseqid = re.sub("^_", "" ,cab_id[0])
-                    fastaFileName = re.search(r".*\.fna", fastaname1)
-                    #print (fastaname, " ", realseqid, " ",  fastaFileName[0], "\n")
-                    if re.match(r"^>PD", fastaname):
-                        fastaFileName = fastaFileName[0] + ".genes.fna"
+                with open('prodigal.clusters', 'a+') as p:
+                    if re.search("PD",completeN[0]):
+                        print (".........", name_clu, "\t", "toolPD", completeN[0])
+                        p.write(name_clu + "\n")
+                        p.close()
 
-                    elif re.match(r"^>SM", fastaname):
-                        fastaFileName = fastaFileName[0] + ".ffn"
 
-                    else:
-                        log.write(fastaname + ' no ^>PD or ^>SM')
-                    
-                    fasta_sequences = SeqIO.parse(open(fastaFileName),'fasta')
-                    for fasta in fasta_sequences:
-                        name, sequence = fasta.id, str(fasta.seq)
-                        if re.search(r'.ffn', fastaFileName): 
-                            name = re.sub(">[a-zA-Z0-9]*_[a-zA-Z0-9]* ", ">" ,name)
-                        if realseqid == name:
-                            new_sequence = fastaname + '\n' + sequence + '\n'
-                            outfasta.write(new_sequence)
-                            #print ("\t\t inserting ",  realseqid, " ", name, " ", fastaname, "\n")'''
-        
-        #matriz = np.concatenate((ClusterName, GeneName, GeneLenght))
+                with open('smallOrf.clusters', 'a+') as s:
+                    if re.search("SM",completeN[0]):
+                        print (".........", name_clu, "\t", "toolSM", completeN[0])
+                        s.write(name_clu + "\n")
+                        s.close()
+                
+                with open('npa.clusters', 'a+') as npa:
+                    if (completeN[2]=="NPA"):
+                        print (".........", name_clu, "\t", "npateste", completeN[2])
+                        npa.write(name_clu + "\n")
+                        npa.close()
+                
+                with open('pa.clusters', 'a+') as pa:
+                    if (completeN[2]=="PA"):
+                        print (".........", name_clu, "\t", "pateste", completeN[2])
+                        pa.write(name_clu + "\n")
+                        pa.close()
 
-        for i in range(len(ClusterName)):
-            print('----', ClusterName[i], OriginalFile[i], Tool[i], Origem[i], GeneLenght[i],  GeneName[i],'\n') 
-            if re.search("PD", Tool[i]):
-                #prodigal.write(ClusterName[i],'\n')
-                print('PD', ClusterName[i], OriginalFile[i], Tool[i], Origem[i], GeneLenght[i],  GeneName[i],'\n')
-                prodigal.write(ClusterName[i] + '\n') 
-            else:
-                #smallOrf.write(ClusterName[i],'\n')
-                print('SM', ClusterName[i], OriginalFile[i], Tool[i], Origem[i], GeneLenght[i],  GeneName[i],'\n')
-                smallOrf.write(ClusterName[i] + '\n') 
+                with open('ra.clusters', 'a+') as ra:
+                    if (completeN[2]=="RA"):
+                        print (".........", name_clu, "\t", "rateste", completeN[2])
+                        ra.write(name_clu + "\n")
+                        ra.close()
+                
+                with open('soil.clusters', 'a+') as soil:
+                    if (completeN[2]=="soil"):
+                        print (".........", name_clu, "\t", "soilteste", completeN[2])
+                        soil.write(name_clu + "\n")
+                        soil.close()
+                
+                for metaLine in allmetaLines:
+                    completeMeta = metaLine.split("\t")
+                    if (completeMeta[0]==OrigF):
+                        with open(completeMeta[4], 'a+') as Ori:
+                                print (".........", name_clu, "\t", "Origemteste", OrigF, completeMeta[0], completeMeta[4])
+                                Ori.write(name_clu + "\n")
+                                Ori.close()
+
+
 
 
     else:
@@ -140,81 +150,19 @@ def process_cdhitcluster(cdhitseq):
 
 
 cdhit_sequences = SeqIO.parse(open("FILECLUSTER.temp"),'fasta')
-with concurrent.futures.ProcessPoolExecutor(max_workers=5) as executor:
+with concurrent.futures.ProcessPoolExecutor(max_workers=1) as executor:
     executor.map(process_cdhitcluster, cdhit_sequences)
 
 
-'''
-#for cdhitseq in cdhit_sequences:
-def process_cdhitcluster(cdhitseq):
-    ini = ">"    
-    name_clu, seqs_clus = cdhitseq.id, str(cdhitseq.seq)
-    name_clu = re.sub("^", ">" ,name_clu)
-    print ("analise", name_clu, "\n")
-    if name_clu in clusterok:
-        print ("\tname_cluster ok", name_clu, "\n")
-
-        #fileout = name_clu + ".fasta"
-        #fileout = re.sub(">", "" ,fileout)
-        #outfasta = open (fileout, 'w+')
-        seqs_clus = re.sub("aa,", "\t" ,seqs_clus)
-        each_id_seq = seqs_clus.split("\t")
-        ClusterName = []
-        GeneName = []
-        GeneLenght = []
-        GeneLenght = []
-        for id_seq in each_id_seq:
-            #print (".........", name_clu, "\t", id_seq)
-            if re.search('[a-zA-Z]', id_seq):
-                completeN = id_seq.split("_")
-               
-                GeneName.append(id_seq)
-                ClusterName.append(name_clu)
-
-                #print (".........", name_clu, "\t", "namegene", nameGene)
-            elif re.search('[1-9]', id_seq):
-                GeneLenght.append(id_seq)
-                #print (".........", name_clu, "\t", "lenghGene", lenghGene)
-            
-            only200seqs = int(only200seqs) + 1
-            print ("--------squantidade - ", only200seqs)
-            if (int(only200seqs) <= 200): 
-                if ini in id_seq:           
-                    #print ("\t---", id_seq, "\n")
-                    fastaname = re.sub("\.\.\..*", "" ,id_seq)
-                    fastaname1 = re.sub("^>[A-Z][A-Z]_", "" ,fastaname)
-                    fastaname1 = re.sub(".proteins.ffa", "" ,fastaname1)
-                    cab_id = re.search(r"_.*", fastaname1)
-                    realseqid = re.sub("^_", "" ,cab_id[0])
-                    fastaFileName = re.search(r".*\.fna", fastaname1)
-                    #print (fastaname, " ", realseqid, " ",  fastaFileName[0], "\n")
-                    if re.match(r"^>PD", fastaname):
-                        fastaFileName = fastaFileName[0] + ".genes.fna"
-
-                    elif re.match(r"^>SM", fastaname):
-                        fastaFileName = fastaFileName[0] + ".ffn"
-
-                    else:
-                        log.write(fastaname + ' no ^>PD or ^>SM')
-                    
-                    fasta_sequences = SeqIO.parse(open(fastaFileName),'fasta')
-                    for fasta in fasta_sequences:
-                        name, sequence = fasta.id, str(fasta.seq)
-                        if re.search(r'.ffn', fastaFileName): 
-                            name = re.sub(">[a-zA-Z0-9]*_[a-zA-Z0-9]* ", ">" ,name)
-                        if realseqid == name:
-                            new_sequence = fastaname + '\n' + sequence + '\n'
-                            outfasta.write(new_sequence)
-                            #print ("\t\t inserting ",  realseqid, " ", name, " ", fastaname, "\n")
-        
-        #matriz = np.concatenate((ClusterName, GeneName, GeneLenght))
-
-        for i in range(len(ClusterName)):
-            print(ClusterName[i], GeneName[i], GeneLenght[i],'\n') 
-    else:
-        print ("OUT cluster: less than size", name_clu, "\n")    
-
-
-cdhit_sequences = SeqIO.parse(open("FILECLUSTER.temp"),'fasta')
-with concurrent.futures.ProcessPoolExecutor(max_workers=5) as executor:
-    executor.map(process_cdhitcluster, cdhit_sequences)'''
+cmd3 = "sort prodigal.clusters | uniq > prodigal_sorted.clusters && mv prodigal_sorted.clusters prodigal.clusters"
+os.system(cmd3)
+cmd4 = "sort smallOrf.clusters | uniq > smallOrf_sorted.clusters && mv smallOrf_sorted.clusters smallOrf.clusters"
+os.system(cmd4)
+cmd6 = "sort npa.clusters | uniq > npa_sorted.clusters && mv npa_sorted.clusters npa.clusters"
+os.system(cmd6)
+cmd7 = "sort pa.clusters | uniq > pa_sorted.clusters && mv pa_sorted.clusters pa.clusters"
+os.system(cmd7)
+cmd8 = "sort ra.clusters | uniq > ra_sorted.clusters && mv ra_sorted.clusters ra.clusters"
+os.system(cmd8)
+cmd9 = "sort soil.clusters | uniq > soil_sorted.clusters && mv soil_sorted.clusters soil.clusters"
+os.system(cmd9)
