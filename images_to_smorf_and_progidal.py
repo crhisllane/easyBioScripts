@@ -28,6 +28,7 @@ idclust = 0
 limit = argumentos.size
 clusterok = []
 lenghAA = 0
+limiteAA = 50
 
 cmd = "sed 's/>Cluster />Cluster_/' %s > FILECLUSTER.temp"%(argumentos.file)
 os.system(cmd)
@@ -56,8 +57,9 @@ for clusterline in allClusterLines:
 
         lastcount=int(element[0]) + 1
 
-if ((lastcount >= limit) and (lenghAA <= 50)):
-    #print (idclust, "=", lastcount)
+if ((lastcount >= limit) and (lenghAA <= limiteAA)):
+    print (idclust, "=", lastcount, "and", lenghAA)
+
     clusterok.append(idclust)
 
 print("clusters ok")
