@@ -27,6 +27,7 @@ lastcount = 0
 idclust = 0
 limit = argumentos.size
 clusterok = []
+lenghAA = 0
 
 cmd = "sed 's/>Cluster />Cluster_/' %s > FILECLUSTER.temp"%(argumentos.file)
 os.system(cmd)
@@ -48,9 +49,14 @@ for clusterline in allClusterLines:
         #print ("idclus", element[0], element[1])
     else:
         print ("elemento0", element[0], "elemento1", element[1], "elemento2", element[2])
+        if lastcount == 0:
+            lenghAA = element[1]
+            lenghAA = re.sub("aa", "" ,lenghAA)
+            lenghAA = int(lenghAA)
+
         lastcount=int(element[0]) + 1
 
-if (lastcount >= limit):
+if ((lastcount >= limit) and (lenghAA <= 50)):
     #print (idclust, "=", lastcount)
     clusterok.append(idclust)
 
@@ -90,59 +96,58 @@ def process_cdhitcluster(cdhitseq):
             if ini in id_seq:  
                 linecomplt = id_seq.split(",")
                 GeneLenght = re.sub("aa", "" ,linecomplt[0])
-                if GeneLenght <= 50:
-                    print ("\ttamanho ok", GeneLenght)         
-                    completeN = linecomplt[1].split("_")
-                    Tool = re.sub('>', '', completeN[0])
-                    OrigF = re.sub("\..*", "", completeN[1])
-                    Origem = completeN[2]
-                    GeneName = linecomplt[1]
-                    print ("\t---- idser com", id_seq, "\n", "aqui-", Tool, OrigF, Origem, GeneName, '\n')
+                print ("\ttamanho ok", GeneLenght)         
+                completeN = linecomplt[1].split("_")
+                Tool = re.sub('>', '', completeN[0])
+                OrigF = re.sub("\..*", "", completeN[1])
+                Origem = completeN[2]
+                GeneName = linecomplt[1]
+                print ("\t---- idser com", id_seq, "\n", "aqui-", Tool, OrigF, Origem, GeneName, '\n')
 
-                    with open('prodigal.clusters_menorque50', 'a+') as p:
-                        if re.search("PD",completeN[0]):
-                            print ("\t.........", name_clu, "\t", "toolPD", completeN[0])
-                            p.write(name_clu + "\n")
-                            p.close()
+                with open('prodigal.clusters_menorque50', 'a+') as p:
+                    if re.search("PD",completeN[0]):
+                        print ("\t.........", name_clu, "\t", "toolPD", completeN[0])
+                        p.write(name_clu + "\n")
+                        p.close()
 
 
-                    with open('smallOrf.clusters_menorque50', 'a+') as s:
-                        if re.search("SM",completeN[0]):
-                            print ("\t.........", name_clu, "\t", "toolSM", completeN[0])
-                            s.write(name_clu + "\n")
-                            s.close()
-                    
-                    with open('npa.clusters_menorque50', 'a+') as npa:
-                        if (completeN[2]=="NPA"):
-                            print ("\t.........", name_clu, "\t", "npateste", completeN[2])
-                            npa.write(name_clu + "\n")
-                            npa.close()
-                    
-                    with open('pa.clusters_menorque50', 'a+') as pa:
-                        if (completeN[2]=="PA"):
-                            print ("\t.........", name_clu, "\t", "pateste", completeN[2])
-                            pa.write(name_clu + "\n")
-                            pa.close()
+                with open('smallOrf.clusters_menorque50', 'a+') as s:
+                    if re.search("SM",completeN[0]):
+                        print ("\t.........", name_clu, "\t", "toolSM", completeN[0])
+                        s.write(name_clu + "\n")
+                        s.close()
+                
+                with open('npa.clusters_menorque50', 'a+') as npa:
+                    if (completeN[2]=="NPA"):
+                        print ("\t.........", name_clu, "\t", "npateste", completeN[2])
+                        npa.write(name_clu + "\n")
+                        npa.close()
+                
+                with open('pa.clusters_menorque50', 'a+') as pa:
+                    if (completeN[2]=="PA"):
+                        print ("\t.........", name_clu, "\t", "pateste", completeN[2])
+                        pa.write(name_clu + "\n")
+                        pa.close()
 
-                    with open('ra.clusters_menorque50', 'a+') as ra:
-                        if (completeN[2]=="RA"):
-                            print ("\t.........", name_clu, "\t", "rateste", completeN[2])
-                            ra.write(name_clu + "\n")
-                            ra.close()
-                    
-                    with open('soil.clusters_menorque50', 'a+') as soil:
-                        if (completeN[2]=="soil"):
-                            print ("\t.........", name_clu, "\t", "soilteste", completeN[2])
-                            soil.write(name_clu + "\n")
-                            soil.close()
-                    
-                    #for metaLine in allmetaLines:
-                    #    completeMeta = metaLine.split("\t")
-                    #    if (completeMeta[0]==OrigF):
-                    #        with open(completeMeta[4], 'a+') as Ori:
-                    #                print (".........", name_clu, "\t", "Origemteste", OrigF, completeMeta[0], completeMeta[4])
-                    #                Ori.write(name_clu + "\n")
-                    #                Ori.close()
+                with open('ra.clusters_menorque50', 'a+') as ra:
+                    if (completeN[2]=="RA"):
+                        print ("\t.........", name_clu, "\t", "rateste", completeN[2])
+                        ra.write(name_clu + "\n")
+                        ra.close()
+                
+                with open('soil.clusters_menorque50', 'a+') as soil:
+                    if (completeN[2]=="soil"):
+                        print ("\t.........", name_clu, "\t", "soilteste", completeN[2])
+                        soil.write(name_clu + "\n")
+                        soil.close()
+                
+                #for metaLine in allmetaLines:
+                #    completeMeta = metaLine.split("\t")
+                #    if (completeMeta[0]==OrigF):
+                #        with open(completeMeta[4], 'a+') as Ori:
+                #                print (".........", name_clu, "\t", "Origemteste", OrigF, completeMeta[0], completeMeta[4])
+                #                Ori.write(name_clu + "\n")
+                #                Ori.close()
 
 
 
