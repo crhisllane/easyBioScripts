@@ -51,7 +51,7 @@ for clusterline in allClusterLines:
         lastcount=int(element[0]) + 1
 
 if (lastcount >= limit):
-    #print (idclust, "=", lastcount)
+    print (idclust, "=", lastcount)
     clusterok.append(idclust)
 
 print("clusters ok")
