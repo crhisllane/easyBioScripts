@@ -135,13 +135,13 @@ def process_cdhitcluster(cdhitseq):
                             soil.write(name_clu + "\n")
                             soil.close()
                     
-                    for metaLine in allmetaLines:
-                        completeMeta = metaLine.split("\t")
-                        if (completeMeta[0]==OrigF):
-                            with open(completeMeta[4], 'a+') as Ori:
-                                    print (".........", name_clu, "\t", "Origemteste", OrigF, completeMeta[0], completeMeta[4])
-                                    Ori.write(name_clu + "\n")
-                                    Ori.close()
+                    #for metaLine in allmetaLines:
+                    #    completeMeta = metaLine.split("\t")
+                    #    if (completeMeta[0]==OrigF):
+                    #        with open(completeMeta[4], 'a+') as Ori:
+                    #                print (".........", name_clu, "\t", "Origemteste", OrigF, completeMeta[0], completeMeta[4])
+                    #                Ori.write(name_clu + "\n")
+                    #                Ori.close()
 
 
 
@@ -155,15 +155,15 @@ with concurrent.futures.ProcessPoolExecutor(max_workers=1) as executor:
     executor.map(process_cdhitcluster, cdhit_sequences)
 
 
-cmd3 = "sort prodigal.clusters | uniq > prodigal_sorted.clusters && mv prodigal_sorted.clusters prodigal.clusters"
+cmd3 = "sort prodigal.clusters_menorque50 | uniq > prodigal_sorted.clusters_menorque50 && mv prodigal_sorted.clusters_menorque50 prodigal.clusters_menorque50"
 os.system(cmd3)
-cmd4 = "sort smallOrf.clusters | uniq > smallOrf_sorted.clusters && mv smallOrf_sorted.clusters smallOrf.clusters"
+cmd4 = "sort smallOrf.clusters_menorque50 | uniq > smallOrf_sorted.clusters_menorque50 && mv smallOrf_sorted.clusters_menorque50 smallOrf.clusters_menorque50"
 os.system(cmd4)
-cmd6 = "sort npa.clusters | uniq > npa_sorted.clusters && mv npa_sorted.clusters npa.clusters"
+cmd6 = "sort npa.clusters_menorque50 | uniq > npa_sorted.clusters_menorque50 && mv npa_sorted.clusters_menorque50 npa.clusters_menorque50"
 os.system(cmd6)
-cmd7 = "sort pa.clusters | uniq > pa_sorted.clusters && mv pa_sorted.clusters pa.clusters"
+cmd7 = "sort pa.clusters_menorque50 | uniq > pa_sorted.clusters_menorque50 && mv pa_sorted.clusters_menorque50 pa.clusters_menorque50"
 os.system(cmd7)
-cmd8 = "sort ra.clusters | uniq > ra_sorted.clusters && mv ra_sorted.clusters ra.clusters"
+cmd8 = "sort ra.clusters_menorque50 | uniq > ra_sorted.clusters_menorque50 && mv ra_sorted.clusters_menorque50 ra.clusters_menorque50"
 os.system(cmd8)
-cmd9 = "sort soil.clusters | uniq > soil_sorted.clusters && mv soil_sorted.clusters soil.clusters"
+cmd9 = "sort soil.clusters_menorque50 | uniq > soil_sorted.clusters_menorque50 && mv soil_sorted.clusters_menorque50 soil.clusters_menorque50"
 os.system(cmd9)
