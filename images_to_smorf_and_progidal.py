@@ -41,7 +41,7 @@ for clusterline in allClusterLines:
     element = elements.split()
 
     if re.match(r"^>", element[0]):
-        if ((lastcount >= limit) and (lenghAA <= limiteAA):
+        if ((lastcount >= limit) and (lenghAA <= limiteAA)):
             #print (idclust, "=", lastcount)
             clusterok.append(idclust)
 
