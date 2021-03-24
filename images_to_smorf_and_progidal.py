@@ -48,7 +48,7 @@ for clusterline in allClusterLines:
         idclust = element[0] + "_" + str(element[1])
         #print ("idclus", element[0], element[1])
     else:
-        print ("elemento0", element[0], "elemento1", element[1], "elemento2", element[2])
+        #print ("elemento0", element[0], "elemento1", element[1], "elemento2", element[2])
         if lastcount == 0:
             lenghAA = element[1]
             lenghAA = re.sub("aa,", "" ,lenghAA)
