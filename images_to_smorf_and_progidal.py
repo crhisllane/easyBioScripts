@@ -51,7 +51,7 @@ for clusterline in allClusterLines:
         print ("elemento0", element[0], "elemento1", element[1], "elemento2", element[2])
         if lastcount == 0:
             lenghAA = element[1]
-            lenghAA = re.sub("aa", "" ,lenghAA)
+            lenghAA = re.sub("aa,", "" ,lenghAA)
             lenghAA = int(lenghAA)
 
         lastcount=int(element[0]) + 1
