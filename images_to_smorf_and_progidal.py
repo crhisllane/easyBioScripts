@@ -47,7 +47,7 @@ for clusterline in allClusterLines:
         idclust = element[0] + "_" + str(element[1])
         #print ("idclus", element[0], element[1])
     else:
-        #print ("  idseq", element[0], element[2])
+        print ("elemento0", element[0], "elemento1", element[1], "elemento2", element[2])
         lastcount=int(element[0]) + 1
 
 if (lastcount >= limit):
