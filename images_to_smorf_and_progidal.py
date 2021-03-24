@@ -56,15 +56,15 @@ if (lastcount >= limit):
 
 print("clusters ok")
 
-proffile = "prodigal.clusters" 
-smalfile = "smallOrf.clusters" 
+proffile = "prodigal.clusters_menorque50" 
+smalfile = "smallOrf.clusters_menorque50" 
 prodigal = open (proffile, 'w+')
 smallOrf = open (smalfile, 'w+')
 
-NPA = "npa.clusters" 
-PA = "pa.clusters" 
-RA = "ra.clusters"
-SOIL = "soil.clusters"
+NPA = "npa.clusters_menorque50" 
+PA = "pa.clusters_menorque50" 
+RA = "ra.clusters_menorque50"
+SOIL = "soil.clusters_menorque50"
 NPA = open (NPA, 'w+')
 PA = open (PA, 'w+')
 RA = open (RA, 'w+')
@@ -77,7 +77,7 @@ def process_cdhitcluster(cdhitseq):
     name_clu = re.sub("^", ">" ,name_clu)
     print ("analise", name_clu, "\n")
     if name_clu in clusterok:
-        print ("\tname_cluster ok", name_clu, "\n seqsclu", seqs_clus, "\n\n")
+        print ("\tname_cluster ok", name_clu")
         name_clu2 = re.sub(">", "", name_clu)
      
         seqs_clus = re.sub("\.\.\.\*", "----" ,seqs_clus)
@@ -86,52 +86,53 @@ def process_cdhitcluster(cdhitseq):
         each_id_seq = seqs_clus.split("----")
 
         for id_seq in each_id_seq:
-            print ("idseq-", id_seq)
-            if ini in id_seq:           
+            print ("\tidseq-", id_seq)
+            if ini in id_seq:  
                 linecomplt = id_seq.split(",")
                 GeneLenght = re.sub("aa", "" ,linecomplt[0])
                 if GeneLenght <= 50:
+                    print ("\ttamanho ok", GeneLenght)         
                     completeN = linecomplt[1].split("_")
                     Tool = re.sub('>', '', completeN[0])
                     OrigF = re.sub("\..*", "", completeN[1])
                     Origem = completeN[2]
                     GeneName = linecomplt[1]
-                    print ("---- idser com", id_seq, "\n", "aqui-", Tool, OrigF, Origem, GeneName, '\n')
+                    print ("\t---- idser com", id_seq, "\n", "aqui-", Tool, OrigF, Origem, GeneName, '\n')
 
                     with open('prodigal.clusters_menorque50', 'a+') as p:
                         if re.search("PD",completeN[0]):
-                            print (".........", name_clu, "\t", "toolPD", completeN[0])
+                            print ("\t.........", name_clu, "\t", "toolPD", completeN[0])
                             p.write(name_clu + "\n")
                             p.close()
 
 
                     with open('smallOrf.clusters_menorque50', 'a+') as s:
                         if re.search("SM",completeN[0]):
-                            print (".........", name_clu, "\t", "toolSM", completeN[0])
+                            print ("\t.........", name_clu, "\t", "toolSM", completeN[0])
                             s.write(name_clu + "\n")
                             s.close()
                     
                     with open('npa.clusters_menorque50', 'a+') as npa:
                         if (completeN[2]=="NPA"):
-                            print (".........", name_clu, "\t", "npateste", completeN[2])
+                            print ("\t.........", name_clu, "\t", "npateste", completeN[2])
                             npa.write(name_clu + "\n")
                             npa.close()
                     
                     with open('pa.clusters_menorque50', 'a+') as pa:
                         if (completeN[2]=="PA"):
-                            print (".........", name_clu, "\t", "pateste", completeN[2])
+                            print ("\t.........", name_clu, "\t", "pateste", completeN[2])
                             pa.write(name_clu + "\n")
                             pa.close()
 
                     with open('ra.clusters_menorque50', 'a+') as ra:
                         if (completeN[2]=="RA"):
-                            print (".........", name_clu, "\t", "rateste", completeN[2])
+                            print ("\t.........", name_clu, "\t", "rateste", completeN[2])
                             ra.write(name_clu + "\n")
                             ra.close()
                     
                     with open('soil.clusters_menorque50', 'a+') as soil:
                         if (completeN[2]=="soil"):
-                            print (".........", name_clu, "\t", "soilteste", completeN[2])
+                            print ("\t.........", name_clu, "\t", "soilteste", completeN[2])
                             soil.write(name_clu + "\n")
                             soil.close()
                     
