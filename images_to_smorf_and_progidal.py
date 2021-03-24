@@ -41,8 +41,9 @@ for clusterline in allClusterLines:
     element = elements.split()
 
     if re.match(r"^>", element[0]):
+        print ("teste ", idclust, "=", lastcount, "and", limiteAA)
         if ((lastcount >= limit) and (lenghAA <= limiteAA)):
-            #print (idclust, "=", lastcount)
+            print ("result", idclust, "=", lastcount, "and", limiteAA)
             clusterok.append(idclust)
 
         count = 0
@@ -57,9 +58,9 @@ for clusterline in allClusterLines:
 
         lastcount=int(element[0]) + 1
 
+print ("teste ", idclust, "=", lastcount, "and", limiteAA)
 if ((lastcount >= limit) and (lenghAA <= limiteAA)):
-    print (idclust, "=", lastcount, "and", lenghAA)
-
+    print ("result", idclust, "=", lastcount, "and", limiteAA)
     clusterok.append(idclust)
 
 print("clusters ok")
