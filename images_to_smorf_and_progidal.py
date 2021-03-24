@@ -51,12 +51,13 @@ for clusterline in allClusterLines:
         #print ("idclus", element[0], element[1])
     else:
         #print ("elemento0", element[0], "elemento1", element[1], "elemento2", element[2])
-        if lastcount == 0:
+        lastcount=int(element[0]) + 1
+        if lastcount == 1:
             lenghAA = element[1]
             lenghAA = re.sub("aa,", "" ,lenghAA)
             lenghAA = int(lenghAA)
 
-        lastcount=int(element[0]) + 1
+        
 
 print ("teste ", idclust, "=", lastcount, "and", lenghAA)
 if ((lastcount >= limit) and (lenghAA <= limiteAA)):
