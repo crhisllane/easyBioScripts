@@ -77,7 +77,7 @@ def process_cdhitcluster(cdhitseq):
     name_clu = re.sub("^", ">" ,name_clu)
     print ("analise", name_clu, "\n")
     if name_clu in clusterok:
-        print ("\tname_cluster ok", name_clu")
+        print ("\tname_cluster ok", name_clu)
         name_clu2 = re.sub(">", "", name_clu)
      
         seqs_clus = re.sub("\.\.\.\*", "----" ,seqs_clus)
