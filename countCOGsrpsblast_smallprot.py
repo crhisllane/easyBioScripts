@@ -60,7 +60,7 @@ for rps_lines in rps_all_lines:
         KO = []
         Query = rps_elements[1]
         Query = Query.rstrip('\n')
-        name = Query.split("\.")
+        name = Query.split(".")
         #print ("\n", Query)
     if re.match(r"CDD:", rps_elements[0]):
         GOone = rps_elements[2]
