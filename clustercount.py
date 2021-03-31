@@ -80,7 +80,7 @@ def process_cdhitcluster(cdhitseq):
                     #print ("\t---", id_seq, "\n")
                     fastaname = re.sub("\.\.\..*", "" ,id_seq)
                     subsid = str(only200seqs) + "_"
-                    fastaname1 = re.sub("^>[A-Z][A-Z]_", subsid ,fastaname)
+                    fastaname1 = re.sub("^>[A-Z][A-Z]_", subsid, fastaname)
                     fastaname1 = re.sub(".proteins.ffa", "" ,fastaname1)
                     cab_id = re.search(r"_.*", fastaname1)
                     realseqid = re.sub("^_", "" ,cab_id[0])
