@@ -13,6 +13,8 @@ argv.add_option("-s", "--size", action="store", dest="size", type="int",
                     help = "minimum cluster size")
 argv.add_option("-f","--fasta", action="store", dest="fasta", type="string",
                     help = "cdhit output fasta file" )
+argv.add_option("-c","--countseqs", action="store", dest="countseq", type="int",
+                    help = "amount of sequences of the cluster to be inserted in the fasta" )
 (argumentos, palha_que_nao_interessa) = argv.parse_args()
 
 clusterfile = open (argumentos.file, 'r')
@@ -22,6 +24,8 @@ lastcount = 0
 idclust = 0
 limit = argumentos.size
 clusterok = []
+
+amountSeq = argumentos.countseq
 
 cmd = "sed 's/>Cluster />Cluster_/' %s > FILECLUSTER.temp"%(argumentos.file)
 os.system(cmd)
@@ -71,7 +75,7 @@ def process_cdhitcluster(cdhitseq):
         for id_seq in each_id_seq:
             only200seqs = int(only200seqs) + 1
             #print ("--------squantidade - ", only200seqs)
-            if (int(only200seqs) <= 200): 
+            if (int(only200seqs) <= amountSeq): 
                 if ini in id_seq:           
                     #print ("\t---", id_seq, "\n")
                     fastaname = re.sub("\.\.\..*", "" ,id_seq)
