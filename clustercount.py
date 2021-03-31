@@ -79,9 +79,19 @@ def process_cdhitcluster(cdhitseq):
                 if ini in id_seq:           
                     #print ("\t---", id_seq, "\n")
                     fastaname = re.sub("\.\.\..*", "" ,id_seq)
-                    subsid = str(only200seqs) + "_"
-                    fastaname1 = re.sub("^>[A-Z][A-Z]_", subsid, fastaname)
+                    fastaname1 = re.sub("^>[A-Z][A-Z]_", "", fastaname)
                     fastaname1 = re.sub(".proteins.ffa", "" ,fastaname1)
+
+                    #____________________________________________________________________
+                    #o alistat dava erro devido aos nomes truncados do clustalw
+                    #acabava que algumas proteinas ficavam com o mesmo nome
+                    #por isso essa etapa foi acrescentada
+                    subsid = str(only200seqs) + "_"
+                    fastaClustalName = re.sub("^>[A-Z][A-Z]_", subsid, fastaname)
+                    fastaClustalName = re.sub(".proteins.ffa", "" ,fastaClustalName)
+                    #____________________________________________________________________
+
+
                     cab_id = re.search(r"_.*", fastaname1)
                     realseqid = re.sub("^_", "" ,cab_id[0])
                     fastaFileName = re.search(r".*\.fna", fastaname1)
@@ -107,7 +117,7 @@ def process_cdhitcluster(cdhitseq):
                             print ("teste do SM1-", name, fastaname, " ", realseqid, " ",  fastaFileName, "\n")
                         if realseqid == name:
                             print ("teste do SM2-", name, fastaname, " ", realseqid, " ",  fastaFileName, "\n")
-                            new_sequence = fastaname + '\n' + sequence + '\n'
+                            new_sequence = fastaClustalName + '\n' + sequence + '\n'
                             outfasta.write(new_sequence)
                             #print ("\t\t inserting ",  realseqid, " ", name, " ", fastaname, "\n") 
     else:
