@@ -86,8 +86,8 @@ def process_cdhitcluster(cdhitseq):
                     #o alistat dava erro devido aos nomes truncados do clustalw
                     #acabava que algumas proteinas ficavam com o mesmo nome
                     #por isso essa etapa foi acrescentada
-                    subsid = str(only200seqs) + "_"
-                    fastaClustalName = re.sub("^>[A-Z][A-Z]_", subsid, fastaname)
+                    subsid = ">" + str(only200seqs) + "_"
+                    fastaClustalName = re.sub("^>", subsid, fastaname)
                     fastaClustalName = re.sub(".proteins.ffa", "" ,fastaClustalName)
                     #____________________________________________________________________
 
