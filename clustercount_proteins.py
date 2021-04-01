@@ -111,7 +111,7 @@ def process_cdhitcluster(cdhitseq):
                     fasta_sequences = SeqIO.parse(open(fastaFileName),'fasta')
                     for fasta in fasta_sequences:
                         name, sequence = fasta.id, str(fasta.seq)
-                        if re.search(r'.ffa', fastaFileName):
+                        if re.search(r'.faa', fastaFileName):
                             print ("teste do SM0-", name, fastaname, " ", realseqid, " ",  fastaFileName, "\n") 
                             name = re.sub("^[a-zA-Z0-9]*_[0-9]*_", "" ,name)
                             print ("teste do SM1-", name, fastaname, " ", realseqid, " ",  fastaFileName, "\n")
