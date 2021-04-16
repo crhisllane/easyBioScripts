@@ -112,7 +112,7 @@ def process_cdhitcluster(cdhitseq):
                 #        new_sequence = fastaname + '\n' + sequence + '\n'
                 #        outfasta.write(new_sequence)
                 #        #print ("\t\t inserting ",  realseqid, " ", name, " ", fastaname, "\n") 
-            else:
+            
 
     else:
         print ("OUT cluster: less than size", name_clu, "\n")    
