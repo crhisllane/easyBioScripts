@@ -75,12 +75,12 @@ def process_cdhitcluster(cdhitseq):
         each_id_seq = seqs_clus.split("----")
 
         for id_seq in each_id_seq:
-            print ("idseq-", id_seq)
+            #print ("idseq-", id_seq)
             if ini in id_seq:           
-                print ("---- idser com", id_seq, "\n")
                 linecomplt = seqs_clus.split(",")
                 GeneLenght.append(re.sub("aa", "" ,linecomplt[0]))
-
+                
+                print ("---- idser com", id_seq, "\t", linecomplt[0], "\n")
                 '''fastaname = re.sub("\.\.\..*", "" ,id_seq)
                 fastaname1 = re.sub("^>[A-Z][A-Z]_", "" ,fastaname)
                 fastaname1 = re.sub(".proteins.ffa", "" ,fastaname1)
