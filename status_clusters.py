@@ -61,7 +61,7 @@ def process_cdhitcluster(cdhitseq):
     name_clu = re.sub("^", ">" ,name_clu)
     print ("analise", name_clu, "\n")
     if name_clu in clusterok:
-        print ("\tname_cluster ok", name_clu, "\n seqsclu", seqs_clus, "\n\n")
+        #print ("\tname_cluster ok", name_clu, "\n seqsclu", seqs_clus, "\n\n")
         ClusterName = []
         GeneName = []
         Tool = []
@@ -79,8 +79,9 @@ def process_cdhitcluster(cdhitseq):
             if ini in id_seq:           
                 linecomplt = seqs_clus.split(",")
                 GeneLenght.append(re.sub("aa", "" ,linecomplt[0]))
-                
-                print ("---- idser com", id_seq, "\t", linecomplt[0], "\n")
+                lessthan = re.sub("aa", "" ,linecomplt[0]))
+                if (int(lessthan)<=150):                
+                    print ("---- MENOR", id_seq, "\t", linecomplt[0], "\n")
                 '''fastaname = re.sub("\.\.\..*", "" ,id_seq)
                 fastaname1 = re.sub("^>[A-Z][A-Z]_", "" ,fastaname)
                 fastaname1 = re.sub(".proteins.ffa", "" ,fastaname1)
