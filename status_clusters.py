@@ -78,8 +78,8 @@ def process_cdhitcluster(cdhitseq):
             #print ("idseq-", id_seq)
             if ini in id_seq:           
                 linecomplt = seqs_clus.split(",")
-                GeneLenght.append(re.sub("aa", "" ,linecomplt[0]))
-                lessthan = re.sub("aa", "" ,linecomplt[0]))
+                #GeneLenght.append(re.sub("aa", "" ,linecomplt[0]))
+                lessthan = re.sub("aa", "" ,linecomplt[0])
                 if (int(lessthan)<=150):                
                     print ("---- MENOR", id_seq, "\t", linecomplt[0], "\n")
                 '''fastaname = re.sub("\.\.\..*", "" ,id_seq)
