@@ -19,7 +19,7 @@ def process_rnacode(clusterline):
     clusterline = clusterline.rstrip('\n')
     print (clusterline, "\n")
 
-    cmd1 = "/home/crhisllane.vasconcelos/programas/hmmer-3.3.2/src/hmmsearch -o %s\_hmmer3.tab --cpu 30 -E 0.01 --tblout %s\_hmmer3.tblout PlantSSPv1.hmm %s > %s\_hmmer3.out "%(clusterline, clusterline, clusterline)
+    cmd1 = " /strg1/home/crhisllane.vasconcelos/programas/hmmer-3.3.2/src/hmmsearch -o %s_hmmer3.tab --cpu 30 -E 0.01 --tblout %s_hmmer3.tblout PlantSSPv1.hmm %s > %s_hmmer3.out "%(clusterline, clusterline, clusterline, clusterline)
     print ("\t", cmd1, "\n")
     os.system(cmd1)
 
