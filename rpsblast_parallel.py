@@ -7,8 +7,7 @@ import concurrent.futures
 import glob 
 
 #before using this script it is necessary to break the fasta file into smaller numbers
-#awk 'BEGIN {n_seq=0;} /^>/ {if(n_seq%60000==0){file=sprintf("group_%d.fa",n_seq);} print >> file; n_seq++; next;} { print >> file; }' < completeSmall_cdhit.out 
-
+#using splitfasta?
 
 argv = OptionParser()
 
