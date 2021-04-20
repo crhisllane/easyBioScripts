@@ -7,7 +7,7 @@ import concurrent.futures
 import glob 
 
 #before using this script it is necessary to break the fasta file into smaller numbers
-#using splitfasta?
+#usei as sequencias recuperadas do mysql
 
 argv = OptionParser()
 
@@ -25,21 +25,12 @@ def process_rpsblast(clusterline):
     clusterline = clusterline.rstrip('\n')
     print (clusterline, "\n")
     
-    #o rpsblast trunca o id quando ocorre um - por isso ta sendo substituido
-    cmd0 = "sed -i '/^>/s/-/____/' %s"%(clusterline)
-    os.system(cmd0)
-
     clusterline_Pure = re.sub(".faa", "" ,clusterline)
     db_name = re.sub(".*/", "" ,db)
     cmd1 = "/strg1/home/crhisllane.vasconcelos/programas/ncbi-blast-2.11.0+/bin/rpsblast -db %s -query %s -out %s_%s.rpsblast -num_threads 40 -evalue 0.01"%(db, clusterline, clusterline_Pure, db_name)
     #cmd1 = "blastp -db %s  -query %s -out %s_%s.blast -num_threads 4 -evalue 0.01  -outfmt '7 qseqid sseqid pident nident qlen slen length mismatch gapopen qstart qend sstart send evalue bitscore qcovs staxis frames qseq sseq'"%(db, clusterline, clusterline_Pure, db_name)
     os.system(cmd1)
 
-    #o rpsblast trunca o id quando ocorre um - foi substituido no inicio do script e agora estou colocando de volta
-    cmd2 = "sed -i '/^>/s/____/-/' %s"%(clusterline)
-    os.system(cmd2)
-    cmd3 = "sed -i '/^Query=/s/____/-/' %s_%s.rpsblast"%(clusterline_Pure, db_name)
-    os.system(cmd3)
 
 
 path = os.getcwd()
