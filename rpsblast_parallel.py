@@ -39,6 +39,7 @@ def process_rpsblast(clusterline):
     cmd2 = "sed -i '/^>/s/____/-/' %s"%(clusterline)
     os.system(cmd2)
     cmd3 = "sed -i '/^Query=/s/____/-/' %s_%s.rpsblast"%(clusterline_Pure, db_name)
+    os.system(cmd3)
 
 
 path = os.getcwd()
