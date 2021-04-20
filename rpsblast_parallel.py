@@ -7,7 +7,7 @@ import concurrent.futures
 import glob 
 
 #before using this script it is necessary to break the fasta file into smaller numbers
-#usei as sequencias recuperadas do mysql
+#usei as sequencias recuperadas do mysql depois quebrei em varios arquivos usando o split
 
 argv = OptionParser()
 
