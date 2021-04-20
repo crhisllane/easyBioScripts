@@ -100,7 +100,7 @@ for rps_lines in rps_all_lines:
 
         
         if namefirst == name[0]:
-        #print("-----tem", combine, "\t", tamanho, "\n")
+        print("-----tem", combine, "\t", tamanho, "\n")
             tab1 = tamanho1 + tab1
             tab2 = tamanho2 + tab2
             tab3 = tamanho3 + tab3
